@@ -1,16 +1,16 @@
 reset
 set default element hex
-create surface rectangle width {2*L} zplane
+create surface rectangle width 1000 zplane
 webcut body 1 with plane xplane offset 0
 webcut body 1 with plane yplane offset 0
 delete Surface 3
 rotate Surface 4 5 angle -90 about Z include_merged
-webcut body 3 1 with plane yplane offset -{L // 2}
+webcut body 3 1 with plane yplane offset -250
 
 
-webcut body 5 1  with plane xplane offset -{L - DW}
-webcut body 4 3  with plane xplane offset {L - DW}
-webcut body 7 1 9 3  with plane yplane offset -{L - DW}
+webcut body 5 1  with plane xplane offset -400
+webcut body 4 3  with plane xplane offset 400
+webcut body 7 1 9 3  with plane yplane offset -400
 
 surface all size 20
 mesh surface all
@@ -31,7 +31,26 @@ modify material 2 set property 'MODULUS' value 2e+08
 modify material 2 set property 'POISSON' value 0.3
 modify material 2 set property 'DENSITY' value 1900
 
+# MATERIAL 3
+create material 3
+modify material 3 name 'rubber_right'
+modify material 3 set property 'MODULUS' value 2e+08
+modify material 3 set property 'POISSON' value 0.3
+modify material 3 set property 'DENSITY' value 1900
+
+# MATERIAL 4
+create material 4
+modify material 4 name 'rubber_bot'
+modify material 4 set property 'MODULUS' value 2e+08
+modify material 4 set property 'POISSON' value 0.3
+modify material 4 set property 'DENSITY' value 1900
+
 create table 1
+modify table 1 dependency x
+create table 2
+modify table 2 dependency x
+create table 3
+modify table 3 dependency y
 
 modify table 1 dependency x
 modify table 1 insert row 1
@@ -45,41 +64,28 @@ modify table 1 insert row 1
 modify table 1 insert row 1
 modify table 1 insert row 1
 modify table 1 insert row 1
-
-modify table 1 cell 1 1 value -{L - DW + i}
-modify table 1 cell 2 1 value -{L - DW + i}
-modify table 1 cell 3 1 value -{L - DW + i}
-modify table 1 cell 4 1 value -{L - DW + i}
-modify table 1 cell 5 1 value -{L - DW + i}
-modify table 1 cell 6 1 value -{L - DW + i}
-modify table 1 cell 7 1 value -{L - DW + i}
-modify table 1 cell 8 1 value -{L - DW + i}
-modify table 1 cell 9 1 value -{L - DW + i}
-modify table 1 cell 10 1 value -{L - DW + i}
-modify table 1 cell 11 1 value -{L - DW + i}
-
-modify table 1 cell 1 2 value R_1
-modify table 1 cell 2 2 value R_2
-modify table 1 cell 3 2 value R_3
-modify table 1 cell 4 2 value R_4
-modify table 1 cell 5 2 value R_5
-modify table 1 cell 6 2 value R_6
-modify table 1 cell 7 2 value R_7
-modify table 1 cell 8 2 value R_8
-modify table 1 cell 9 2 value R_9
-modify table 1 cell 10 2 value R_10
-modify table 1 cell 11 2 value R_11
-
-modify material 2 set property 'MASS_MATRIX_DAMPING' table 1
-
-# MATERIAL 3
-create material 3
-modify material 3 name 'rubber_right'
-modify material 3 set property 'MODULUS' value 2e+08
-modify material 3 set property 'POISSON' value 0.3
-modify material 3 set property 'DENSITY' value 1900
-
-create table 2
+modify table 1 cell 1 1 value -400
+modify table 1 cell 2 1 value -410
+modify table 1 cell 3 1 value -420
+modify table 1 cell 4 1 value -430
+modify table 1 cell 5 1 value -440
+modify table 1 cell 6 1 value -450
+modify table 1 cell 7 1 value -460
+modify table 1 cell 8 1 value -470
+modify table 1 cell 9 1 value -480
+modify table 1 cell 10 1 value -490
+modify table 1 cell 11 1 value -500
+modify table 1 cell 1 2 value 0.0
+modify table 1 cell 2 2 value 0.03467048426222995
+modify table 1 cell 3 2 value 0.2773638740978396
+modify table 1 cell 4 2 value 0.9361030750802083
+modify table 1 cell 5 2 value 2.2189109927827166
+modify table 1 cell 6 2 value 4.333810532778743
+modify table 1 cell 7 2 value 7.488824600641666
+modify table 1 cell 8 2 value 11.891976101944866
+modify table 1 cell 9 2 value 17.751287942261733
+modify table 1 cell 10 2 value 25.27478302716563
+modify table 1 cell 11 2 value 34.67048426222994
 
 modify table 2 dependency x
 modify table 2 insert row 1
@@ -93,7 +99,6 @@ modify table 2 insert row 1
 modify table 2 insert row 1
 modify table 2 insert row 1
 modify table 2 insert row 1
-
 modify table 2 cell 1 1 value 400
 modify table 2 cell 2 1 value 410
 modify table 2 cell 3 1 value 420
@@ -105,29 +110,17 @@ modify table 2 cell 8 1 value 470
 modify table 2 cell 9 1 value 480
 modify table 2 cell 10 1 value 490
 modify table 2 cell 11 1 value 500
-
-modify table 2 cell 1 2 value R_1
-modify table 2 cell 2 2 value R_2
-modify table 2 cell 3 2 value R_3
-modify table 2 cell 4 2 value R_4
-modify table 2 cell 5 2 value R_5
-modify table 2 cell 6 2 value R_6
-modify table 2 cell 7 2 value R_7
-modify table 2 cell 8 2 value R_8
-modify table 2 cell 9 2 value R_9
-modify table 2 cell 10 2 value R_10
-modify table 2 cell 11 2 value R_11
-
-modify material 3 set property 'MASS_MATRIX_DAMPING' table 2
-
-# MATERIAL 4
-create material 4
-modify material 4 name 'rubber_bot'
-modify material 4 set property 'MODULUS' value 2e+08
-modify material 4 set property 'POISSON' value 0.3
-modify material 4 set property 'DENSITY' value 1900
-
-create table 3
+modify table 2 cell 1 2 value 0.0
+modify table 2 cell 2 2 value 0.03467048426222995
+modify table 2 cell 3 2 value 0.2773638740978396
+modify table 2 cell 4 2 value 0.9361030750802083
+modify table 2 cell 5 2 value 2.2189109927827166
+modify table 2 cell 6 2 value 4.333810532778743
+modify table 2 cell 7 2 value 7.488824600641666
+modify table 2 cell 8 2 value 11.891976101944866
+modify table 2 cell 9 2 value 17.751287942261733
+modify table 2 cell 10 2 value 25.27478302716563
+modify table 2 cell 11 2 value 34.67048426222994
 
 modify table 3 dependency y
 modify table 3 insert row 1
@@ -141,7 +134,6 @@ modify table 3 insert row 1
 modify table 3 insert row 1
 modify table 3 insert row 1
 modify table 3 insert row 1
-
 modify table 3 cell 1 1 value -400
 modify table 3 cell 2 1 value -410
 modify table 3 cell 3 1 value -420
@@ -153,19 +145,20 @@ modify table 3 cell 8 1 value -470
 modify table 3 cell 9 1 value -480
 modify table 3 cell 10 1 value -490
 modify table 3 cell 11 1 value -500
+modify table 3 cell 1 2 value 0.0
+modify table 3 cell 2 2 value 0.03467048426222995
+modify table 3 cell 3 2 value 0.2773638740978396
+modify table 3 cell 4 2 value 0.9361030750802083
+modify table 3 cell 5 2 value 2.2189109927827166
+modify table 3 cell 6 2 value 4.333810532778743
+modify table 3 cell 7 2 value 7.488824600641666
+modify table 3 cell 8 2 value 11.891976101944866
+modify table 3 cell 9 2 value 17.751287942261733
+modify table 3 cell 10 2 value 25.27478302716563
+modify table 3 cell 11 2 value 34.67048426222994
 
-modify table 3 cell 1 2 value R_1
-modify table 3 cell 2 2 value R_2
-modify table 3 cell 3 2 value R_3
-modify table 3 cell 4 2 value R_4
-modify table 3 cell 5 2 value R_5
-modify table 3 cell 6 2 value R_6
-modify table 3 cell 7 2 value R_7
-modify table 3 cell 8 2 value R_8
-modify table 3 cell 9 2 value R_9
-modify table 3 cell 10 2 value R_10
-modify table 3 cell 11 2 value R_11
-
+modify material 2 set property 'MASS_MATRIX_DAMPING' table 1
+modify material 3 set property 'MASS_MATRIX_DAMPING' table 2
 modify material 4 set property 'MASS_MATRIX_DAMPING' table 3
 
 # BLOCKS
@@ -213,4 +206,4 @@ analysis type dynamic elasticity dim2 planestrain preload off
 dynamic method full_solution scheme explicit maxtime 3 maxsteps 15000
 output nodalforce off energy off record3d on log on vtu on material off results everystep 200000
 
-calculation start path 'B:\ELfimov\Dissertation\exps\Lamb_demphire\lamb_demphire_R_0_20_7\output.pvd'
+calculation start path 'B:\ELfimov\Dissertation\exps\Lamb_demphire\lamb_demphire_L_500_DW_100_R_0.01_20_7\output.pvd'

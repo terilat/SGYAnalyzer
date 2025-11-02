@@ -1,0 +1,335 @@
+reset
+set default element hex
+create surface rectangle width 1000 zplane
+webcut body 1 with plane xplane offset 0
+webcut body 1 with plane yplane offset 0
+delete Surface 3
+rotate Surface 4 5 angle -90 about Z include_merged
+webcut body 3 1 with plane yplane offset -250
+
+
+webcut body 5 1  with plane xplane offset -260
+webcut body 4 3  with plane xplane offset 260
+webcut body 7 1 9 3  with plane yplane offset -260
+
+surface all size 20
+mesh surface all
+imprint all
+merge all
+
+# MATERIAL 1
+create material 1
+modify material 1 name 'rock'
+modify material 1 set property 'MODULUS' value 2e+08
+modify material 1 set property 'POISSON' value 0.3
+modify material 1 set property 'DENSITY' value 1900
+
+# MATERIAL 2
+create material 2
+modify material 2 name 'rubber_left'
+modify material 2 set property 'MODULUS' value 2e+08
+modify material 2 set property 'POISSON' value 0.3
+modify material 2 set property 'DENSITY' value 1900
+
+# MATERIAL 3
+create material 3
+modify material 3 name 'rubber_right'
+modify material 3 set property 'MODULUS' value 2e+08
+modify material 3 set property 'POISSON' value 0.3
+modify material 3 set property 'DENSITY' value 1900
+
+# MATERIAL 4
+create material 4
+modify material 4 name 'rubber_bot'
+modify material 4 set property 'MODULUS' value 2e+08
+modify material 4 set property 'POISSON' value 0.3
+modify material 4 set property 'DENSITY' value 1900
+
+create table 1
+modify table 1 dependency x
+create table 2
+modify table 2 dependency x
+create table 3
+modify table 3 dependency y
+
+modify table 1 dependency x
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 cell 1 1 value -260
+modify table 1 cell 2 1 value -270
+modify table 1 cell 3 1 value -280
+modify table 1 cell 4 1 value -290
+modify table 1 cell 5 1 value -300
+modify table 1 cell 6 1 value -310
+modify table 1 cell 7 1 value -320
+modify table 1 cell 8 1 value -330
+modify table 1 cell 9 1 value -340
+modify table 1 cell 10 1 value -350
+modify table 1 cell 11 1 value -360
+modify table 1 cell 12 1 value -370
+modify table 1 cell 13 1 value -380
+modify table 1 cell 14 1 value -390
+modify table 1 cell 15 1 value -400
+modify table 1 cell 16 1 value -410
+modify table 1 cell 17 1 value -420
+modify table 1 cell 18 1 value -430
+modify table 1 cell 19 1 value -440
+modify table 1 cell 20 1 value -450
+modify table 1 cell 21 1 value -460
+modify table 1 cell 22 1 value -470
+modify table 1 cell 23 1 value -480
+modify table 1 cell 24 1 value -490
+modify table 1 cell 25 1 value -500
+modify table 1 cell 1 2 value 0.0
+modify table 1 cell 2 2 value 0.001567495129043237
+modify table 1 cell 3 2 value 0.012539961032345896
+modify table 1 cell 4 2 value 0.04232236848416741
+modify table 1 cell 5 2 value 0.10031968825876716
+modify table 1 cell 6 2 value 0.19593689113040472
+modify table 1 cell 7 2 value 0.33857894787333925
+modify table 1 cell 8 2 value 0.5376508292618305
+modify table 1 cell 9 2 value 0.8025575060701373
+modify table 1 cell 10 2 value 1.14270394907252
+modify table 1 cell 11 2 value 1.5674951290432377
+modify table 1 cell 12 2 value 2.086336016756549
+modify table 1 cell 13 2 value 2.708631582986714
+modify table 1 cell 14 2 value 3.4437867985079915
+modify table 1 cell 15 2 value 4.301206634094644
+modify table 1 cell 16 2 value 5.290296060520926
+modify table 1 cell 17 2 value 6.4204600485610985
+modify table 1 cell 18 2 value 7.701103568989426
+modify table 1 cell 19 2 value 9.14163159258016
+modify table 1 cell 20 2 value 10.751449090107563
+modify table 1 cell 21 2 value 12.539961032345902
+modify table 1 cell 22 2 value 14.51657239006942
+modify table 1 cell 23 2 value 16.69068813405239
+modify table 1 cell 24 2 value 19.07171323506907
+modify table 1 cell 25 2 value 21.669052663893712
+
+modify table 2 dependency x
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 cell 1 1 value 260
+modify table 2 cell 2 1 value 270
+modify table 2 cell 3 1 value 280
+modify table 2 cell 4 1 value 290
+modify table 2 cell 5 1 value 300
+modify table 2 cell 6 1 value 310
+modify table 2 cell 7 1 value 320
+modify table 2 cell 8 1 value 330
+modify table 2 cell 9 1 value 340
+modify table 2 cell 10 1 value 350
+modify table 2 cell 11 1 value 360
+modify table 2 cell 12 1 value 370
+modify table 2 cell 13 1 value 380
+modify table 2 cell 14 1 value 390
+modify table 2 cell 15 1 value 400
+modify table 2 cell 16 1 value 410
+modify table 2 cell 17 1 value 420
+modify table 2 cell 18 1 value 430
+modify table 2 cell 19 1 value 440
+modify table 2 cell 20 1 value 450
+modify table 2 cell 21 1 value 460
+modify table 2 cell 22 1 value 470
+modify table 2 cell 23 1 value 480
+modify table 2 cell 24 1 value 490
+modify table 2 cell 25 1 value 500
+modify table 2 cell 1 2 value 0.0
+modify table 2 cell 2 2 value 0.001567495129043237
+modify table 2 cell 3 2 value 0.012539961032345896
+modify table 2 cell 4 2 value 0.04232236848416741
+modify table 2 cell 5 2 value 0.10031968825876716
+modify table 2 cell 6 2 value 0.19593689113040472
+modify table 2 cell 7 2 value 0.33857894787333925
+modify table 2 cell 8 2 value 0.5376508292618305
+modify table 2 cell 9 2 value 0.8025575060701373
+modify table 2 cell 10 2 value 1.14270394907252
+modify table 2 cell 11 2 value 1.5674951290432377
+modify table 2 cell 12 2 value 2.086336016756549
+modify table 2 cell 13 2 value 2.708631582986714
+modify table 2 cell 14 2 value 3.4437867985079915
+modify table 2 cell 15 2 value 4.301206634094644
+modify table 2 cell 16 2 value 5.290296060520926
+modify table 2 cell 17 2 value 6.4204600485610985
+modify table 2 cell 18 2 value 7.701103568989426
+modify table 2 cell 19 2 value 9.14163159258016
+modify table 2 cell 20 2 value 10.751449090107563
+modify table 2 cell 21 2 value 12.539961032345902
+modify table 2 cell 22 2 value 14.51657239006942
+modify table 2 cell 23 2 value 16.69068813405239
+modify table 2 cell 24 2 value 19.07171323506907
+modify table 2 cell 25 2 value 21.669052663893712
+
+modify table 3 dependency y
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 cell 1 1 value -260
+modify table 3 cell 2 1 value -270
+modify table 3 cell 3 1 value -280
+modify table 3 cell 4 1 value -290
+modify table 3 cell 5 1 value -300
+modify table 3 cell 6 1 value -310
+modify table 3 cell 7 1 value -320
+modify table 3 cell 8 1 value -330
+modify table 3 cell 9 1 value -340
+modify table 3 cell 10 1 value -350
+modify table 3 cell 11 1 value -360
+modify table 3 cell 12 1 value -370
+modify table 3 cell 13 1 value -380
+modify table 3 cell 14 1 value -390
+modify table 3 cell 15 1 value -400
+modify table 3 cell 16 1 value -410
+modify table 3 cell 17 1 value -420
+modify table 3 cell 18 1 value -430
+modify table 3 cell 19 1 value -440
+modify table 3 cell 20 1 value -450
+modify table 3 cell 21 1 value -460
+modify table 3 cell 22 1 value -470
+modify table 3 cell 23 1 value -480
+modify table 3 cell 24 1 value -490
+modify table 3 cell 25 1 value -500
+modify table 3 cell 1 2 value 0.0
+modify table 3 cell 2 2 value 0.001567495129043237
+modify table 3 cell 3 2 value 0.012539961032345896
+modify table 3 cell 4 2 value 0.04232236848416741
+modify table 3 cell 5 2 value 0.10031968825876716
+modify table 3 cell 6 2 value 0.19593689113040472
+modify table 3 cell 7 2 value 0.33857894787333925
+modify table 3 cell 8 2 value 0.5376508292618305
+modify table 3 cell 9 2 value 0.8025575060701373
+modify table 3 cell 10 2 value 1.14270394907252
+modify table 3 cell 11 2 value 1.5674951290432377
+modify table 3 cell 12 2 value 2.086336016756549
+modify table 3 cell 13 2 value 2.708631582986714
+modify table 3 cell 14 2 value 3.4437867985079915
+modify table 3 cell 15 2 value 4.301206634094644
+modify table 3 cell 16 2 value 5.290296060520926
+modify table 3 cell 17 2 value 6.4204600485610985
+modify table 3 cell 18 2 value 7.701103568989426
+modify table 3 cell 19 2 value 9.14163159258016
+modify table 3 cell 20 2 value 10.751449090107563
+modify table 3 cell 21 2 value 12.539961032345902
+modify table 3 cell 22 2 value 14.51657239006942
+modify table 3 cell 23 2 value 16.69068813405239
+modify table 3 cell 24 2 value 19.07171323506907
+modify table 3 cell 25 2 value 21.669052663893712
+
+modify material 2 set property 'MASS_MATRIX_DAMPING' table 1
+modify material 3 set property 'MASS_MATRIX_DAMPING' table 2
+modify material 4 set property 'MASS_MATRIX_DAMPING' table 3
+
+# BLOCKS
+# BLOCK 1
+set duplicate block elements off
+block 1 add surface 10 15 21 23
+block 1 name 'rock'
+block 1 material 1
+block 1 element plane order 7
+
+# BLOCK 2
+set duplicate block elements off
+block 2 add surface 11 19 18 
+block 2 name 'rubber_left'
+block 2 material 2
+block 2 element plane order 7
+
+# BLOCK 3
+set duplicate block elements off
+block 3 add surface 14 24 25 
+block 3 name 'rubber_right'
+block 3 material 3
+block 3 element plane order 7
+
+# BLOCK 4
+set duplicate block elements off
+block 4 add surface 20 22
+block 4 name 'rubber_bot'
+block 4 material 4
+block 4 element plane order 7
+
+damping on mass_matrix 1 stiffness_matrix 0 spin_softening off
+coriolis off
+
+create absorption on curve 28 58 54 40 36 52 48 73 75 21
+
+create force on vertex 10 force value 1 direction 0 -1 0
+bcdep force 1 value 'berlage(1e+8, 5, time)'
+
+create receiver on curve 31 33 displacement 1 1 0
+create receiver on curve 31 33 velocity 1 1 0
+create receiver on curve 31 33 acceleration 1 1 0
+
+analysis type dynamic elasticity dim2 planestrain preload off
+dynamic method full_solution scheme explicit maxtime 3 maxsteps 15000
+output nodalforce off energy off record3d on log on vtu on material off results everystep 200000
+
+calculation start path 'B:\ELfimov\Dissertation\exps\Lamb_demphire\lamb_demphire_L_500_DW_240_R_0.001_20_7\output.pvd'

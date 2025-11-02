@@ -1,0 +1,50 @@
+modify material 2 set property 'MASS_MATRIX_DAMPING' table 1
+modify material 3 set property 'MASS_MATRIX_DAMPING' table 2
+modify material 4 set property 'MASS_MATRIX_DAMPING' table 3
+
+# BLOCKS
+# BLOCK 1
+set duplicate block elements off
+block 1 add surface 10 15 21 23
+block 1 name 'rock'
+block 1 material 1
+block 1 element plane order 7
+
+# BLOCK 2
+set duplicate block elements off
+block 2 add surface 11 19 18 
+block 2 name 'rubber_left'
+block 2 material 2
+block 2 element plane order 7
+
+# BLOCK 3
+set duplicate block elements off
+block 3 add surface 14 24 25 
+block 3 name 'rubber_right'
+block 3 material 3
+block 3 element plane order 7
+
+# BLOCK 4
+set duplicate block elements off
+block 4 add surface 20 22
+block 4 name 'rubber_bot'
+block 4 material 4
+block 4 element plane order 7
+
+damping on mass_matrix 1 stiffness_matrix 0 spin_softening off
+coriolis off
+
+create absorption on curve 28 58 54 40 36 52 48 73 75 21
+
+create force on vertex 10 force value 1 direction 0 -1 0
+bcdep force 1 value 'berlage(1e+8, 5, time)'
+
+create receiver on curve 31 33 displacement 1 1 0
+create receiver on curve 31 33 velocity 1 1 0
+create receiver on curve 31 33 acceleration 1 1 0
+
+analysis type dynamic elasticity dim2 planestrain preload off
+dynamic method full_solution scheme explicit maxtime 3 maxsteps 15000
+output nodalforce off energy off record3d on log on vtu on material off results everystep 200000
+
+calculation start path 'B:\ELfimov\Dissertation\exps\Lamb_demphire\lamb_demphire_L_{L}_DW_{DW}_R_{R}_20_7\output.pvd'
