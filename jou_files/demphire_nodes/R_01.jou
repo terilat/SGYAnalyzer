@@ -1,0 +1,162 @@
+#!python
+import numpy as np
+import os
+os.path.join("B:" + os.sep, "ELfimov", "Dissertation", "exps", "Lamb_demphire_nodes")
+
+R_coefs = [0, 0.01, 0.0001]
+DW_coefs = [100, 150, 200, 250]
+L_coefs = [500, 600, 750, 1000]
+
+params = []
+for R_c in R_coefs:
+    for demphire_width in DW_coefs:
+        for L in L_coefs:
+            params.append([R_c, demphire_width, L])
+
+for R_c, demphire_width, L in params:
+    cubit.cmd("reset")
+
+    cubit.cmd("set default element hex")
+    cubit.cmd(f"create surface rectangle width {2*L} zplane")
+    cubit.cmd("webcut body 1 with plane xplane offset 0")
+    cubit.cmd("webcut body 1 with plane yplane offset 0")
+    cubit.cmd("delete Surface 3")
+    cubit.cmd("rotate Surface 4 5 angle -90 about Z include_merged")
+    cubit.cmd(f"webcut body 3 1 with plane yplane offset -{L // 2}")
+
+
+    cubit.cmd(f"webcut body 5 1  with plane xplane offset -{L - demphire_width}")
+    cubit.cmd(f"webcut body 4 3  with plane xplane offset {L - demphire_width}")
+    cubit.cmd(f"webcut body 7 1 9 3  with plane yplane offset -{L - demphire_width}")
+
+    cubit.cmd("surface all size 20")
+    cubit.cmd("mesh surface all")
+    cubit.cmd("imprint all")
+    cubit.cmd("merge all")
+
+    cubit.cmd("# MATERIAL 1")
+    cubit.cmd("create material 1")
+    cubit.cmd("modify material 1 name 'rock'")
+    cubit.cmd("modify material 1 set property 'MODULUS' value 2e+08")
+    cubit.cmd("modify material 1 set property 'POISSON' value 0.3")
+    cubit.cmd("modify material 1 set property 'DENSITY' value 1900")
+
+    cubit.cmd("# MATERIAL 2")
+    cubit.cmd("create material 2")
+    cubit.cmd("modify material 2 name 'rubber_left'")
+    cubit.cmd("modify material 2 set property 'MODULUS' value 2e+08")
+    cubit.cmd("modify material 2 set property 'POISSON' value 0.3")
+    cubit.cmd("modify material 2 set property 'DENSITY' value 1900")
+
+    cubit.cmd("# MATERIAL 3")
+    cubit.cmd("create material 3")
+    cubit.cmd("modify material 3 name 'rubber_right'")
+    cubit.cmd("modify material 3 set property 'MODULUS' value 2e+08")
+    cubit.cmd("modify material 3 set property 'POISSON' value 0.3")
+    cubit.cmd("modify material 3 set property 'DENSITY' value 1900")
+
+    cubit.cmd("# MATERIAL 4")
+    cubit.cmd("create material 4")
+    cubit.cmd("modify material 4 name 'rubber_bot'")
+    cubit.cmd("modify material 4 set property 'MODULUS' value 2e+08")
+    cubit.cmd("modify material 4 set property 'POISSON' value 0.3")
+    cubit.cmd("modify material 4 set property 'DENSITY' value 1900")
+
+    cubit.cmd("create table 1")
+    cubit.cmd("create table 2")
+    cubit.cmd("create table 3")
+
+    cubit.cmd("modify table 1 dependency node")
+    cubit.cmd("modify table 2 dependency node")
+    cubit.cmd("modify table 3 dependency node")
+
+    nodes_list = cubit.get_entities("node")
+
+    def evaluate_demphire_value(value, demphire_width, R_c):
+        if R_c < 1e-10:
+            return 0
+        N = 3
+        v_p = 376.431142253533
+        b_0 = -(N + 1) * v_p * np.log(R_c)  / 2 / demphire_width
+        return b_0 * (value / demphire_width)**N
+
+
+    cnt = 0
+    for node in nodes_list:
+        x, y, z = cubit.get_nodal_coordinates(node)
+        if y > -(L - demphire_width):
+            if x < -(L - demphire_width):
+                demph = evaluate_demphire_value(-x - (L - demphire_width), demphire_width, R_c)
+                # print(x, demph)
+                cubit.cmd(f"modify table 1 insert row 1")
+                cubit.cmd(f"modify table 1 cell 1 1 value {node}")
+                cubit.cmd(f"modify table 1 cell 1 2 value {demph}")
+            if x > (L - demphire_width):
+                demph = evaluate_demphire_value(x - (L - demphire_width), demphire_width, R_c)
+                # print(x, demph)
+                cubit.cmd(f"modify table 2 insert row 1")
+                cubit.cmd(f"modify table 2 cell 1 1 value {node}")
+                cubit.cmd(f"modify table 2 cell 1 2 value {demph}")
+        else:
+            demph = evaluate_demphire_value(-y - (L - demphire_width), demphire_width, R_c)
+            # print(y, demph)
+            cubit.cmd(f"modify table 3 insert row 1")
+            cubit.cmd(f"modify table 3 cell 1 1 value {node}")
+            cubit.cmd(f"modify table 3 cell 1 2 value {demph}")
+
+    cubit.cmd("modify material 2 set property 'MASS_MATRIX_DAMPING' table 1")
+    cubit.cmd("modify material 3 set property 'MASS_MATRIX_DAMPING' table 2")
+    cubit.cmd("modify material 4 set property 'MASS_MATRIX_DAMPING' table 3")
+
+    cubit.cmd("# BLOCKS")
+    cubit.cmd("# BLOCK 1")
+    cubit.cmd("set duplicate block elements off")
+    cubit.cmd("block 1 add surface 10 15 21 23")
+    cubit.cmd("block 1 name 'rock'")
+    cubit.cmd("block 1 material 1")
+    cubit.cmd("block 1 element plane order 7")
+
+    cubit.cmd("# BLOCK 2")
+    cubit.cmd("set duplicate block elements off")
+    cubit.cmd("block 2 add surface 11 19 18 ")
+    cubit.cmd("block 2 name 'rubber_left'")
+    cubit.cmd("block 2 material 2")
+    cubit.cmd("block 2 element plane order 7")
+
+    cubit.cmd("# BLOCK 3")
+    cubit.cmd("set duplicate block elements off")
+    cubit.cmd("block 3 add surface 14 24 25 ")
+    cubit.cmd("block 3 name 'rubber_right'")
+    cubit.cmd("block 3 material 3")
+    cubit.cmd("block 3 element plane order 7")
+
+    cubit.cmd("# BLOCK 4")
+    cubit.cmd("set duplicate block elements off")
+    cubit.cmd("block 4 add surface 20 22")
+    cubit.cmd("block 4 name 'rubber_bot'")
+    cubit.cmd("block 4 material 4")
+    cubit.cmd("block 4 element plane order 7")
+
+    if R_c > 1e-10:
+        cubit.cmd(f"damping on mass_matrix 1 stiffness_matrix 0 spin_softening off")
+        cubit.cmd("coriolis off")
+
+    cubit.cmd("create absorption on curve 28 58 54 40 36 52 48 73 75 21")
+
+    cubit.cmd("create force on vertex 10 force value 1 direction 0 -1 0")
+    cubit.cmd("bcdep force 1 value 'berlage(1e+8, 5, time)'")
+
+    cubit.cmd("create receiver on curve 31 33 displacement 1 1 0")
+    cubit.cmd("create receiver on curve 31 33 velocity 1 1 0")
+    cubit.cmd("create receiver on curve 31 33 acceleration 1 1 0")
+
+    cubit.cmd("analysis type dynamic elasticity dim2 planestrain preload off")
+    cubit.cmd("dynamic method full_solution scheme explicit maxtime 3 maxsteps 15000")
+    cubit.cmd("output nodalforce off energy off record3d on log on vtu on material off results everystep 200000")
+
+    path_dir_save = os.path.join("B:" + os.sep, "ELfimov", "Dissertation", "exps", "Lamb_demphire_nodes", f"lamb_demphire_R_{R_c}_DW_{demphire_width}_L_{L}_20_7")
+    os.makedirs(path_dir_save, exist_ok=True)
+    path_dir_save_exp = os.path.join(path_dir_save, 'output.pvd')
+    print(path_dir_save_exp)
+    cubit.cmd(f"calculation start path \'{path_dir_save_exp}\'")
+
