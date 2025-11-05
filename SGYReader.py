@@ -89,6 +89,24 @@ def get_seysmic_tensor(path_to_exp: str, exp: str, inner_path: str='output'):
             time_evaluation = int(match.group(1))
             logger.info(f"Calculation time {exp}: {time_evaluation}")
             break
+        else:
+            time_evaluation = None
 
     return tensor, time_line, time_evaluation
     
+
+def local_extremums(series: np.ndarray, ths: float = 1e-6):
+    extremums = []
+    for i in range(1, series.shape[0]-1):
+        if series[i] > series[i+1] and series[i] > series[i-1] and np.abs(series[i]) > ths:
+            extremums.append(i)
+        elif series[i] < series[i+1] and series[i] < series[i-1] and np.abs(series[i]) > ths:
+            extremums.append(i)
+    return extremums
+
+def find_border(series: np.ndarray, ths: float = 1e-6):
+    inds = []
+    for i in range(series.shape[0]-1):
+        if series[i] > ths and series[i+1] < ths or series[i] < ths and series[i+1] > ths:
+            inds.append(i)
+    return inds

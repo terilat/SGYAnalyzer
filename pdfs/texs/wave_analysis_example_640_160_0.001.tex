@@ -1,0 +1,94 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{geometry}
+\geometry{margin=2cm}
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\begin{document}
+
+\section*{Анализ затухания волн: L=640, DW=160, R=0.001}
+
+\subsection*{Параметры моделирования}
+
+\begin{itemize}
+    \item Длина образца: $L = 640$ м
+    \item Ширина образца: $DW = 160$ м
+    \item Коэффициент затухания: $R = 0.001$
+    \item Модуль Юнга: $E$, Коэффициент Пуассона: $\nu$, Плотность: $\rho$
+\end{itemize}
+
+\subsection*{Расчётные скорости волн}
+
+\begin{itemize}
+    \item Аналитическая скорость продольной волны: $v_p = 376.43$ м/с
+    \item Аналитическая скорость поперечной волны: $v_s = 201.21$ м/с
+    \item Аналитическая скорость Рэлеевской волны: $v_r = 186.35$ м/с
+    \item Временной шаг: $\Delta t = 3.41e-04$ с
+    \item Экспериментальная скорость поперечной волны: $v_s^{exp} = 250.00$ м/с
+    \item Экспериментальная скорость отраженной продольной волны: $v_p^{ref} = 192.25$ м/с
+    \item Величина ошибки: $\varepsilon = 1.11e-07$
+\end{itemize}
+
+\subsection*{Анализ прихода продольной волны}
+
+\begin{itemize}
+    \item Аналитическое время прихода продольной волны: $t_{analytical} = 1.70$ с
+    \item Экспериментальный индекс прихода продольной волны: 5104
+    \item Экспериментальное время прихода продольной волны: $t_{wave} = 1.74$ с
+    \item Скорость пришедшей продольной волны: $v_p^{exp} = 367.94$ м/с
+    \item Длина продольной волны в индексах: 1222
+    \item Длина продольной волны в метрах: $\lambda_p = 153.19$ м
+\end{itemize}
+
+\subsection*{Анализ пересечения волн}
+
+\begin{itemize}
+    \item Экспериментальное время пересечения волн: $t_{intersection} = 2.20$ с
+    \item Экспериментальный индекс пересечения волн: 6465
+    \item Экспериментальное расстояние пересечения волн: $x_{intersection} = 550.82$ м
+    \item Номер приемника, ближайшего к пересечению: 28
+    \item Индекс прихода падающей волны через ресивер пересечения: 4466
+\end{itemize}
+
+\subsection*{Визуализация тензора}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./pdfs/figures/wave_analysis_example_640_160_0.001_tensor_imshow.png}
+    \caption{Визуализация распространения волн в среде}
+    \label{fig:tensor}
+\end{figure}
+
+\subsection*{Анализ волн}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{./pdfs/figures/wave_analysis_example_640_160_0.001_waves_analysis.png}
+    \caption{Анализ падающих и отраженных волн}
+    \label{fig:waves}
+\end{figure}
+
+\subsection*{Результаты анализа амплитуд}
+
+\begin{longtable}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Позиция & $t_{p,fall}$ & $t_{p,refl}$ & $t_{s,fall}$ & $t_{int}$ & $A_{p,fall}$ & $A_{p,refl,0}$ & $A_{p,refl,1}$ & Ratio 0 & Ratio 1 \\
+(м) & (с) & (с) & (с) & (с) & & & & (\%) & (\%) \\
+\hline
+\endfirsthead
+\hline
+Позиция & $t_{p,fall}$ & $t_{p,refl}$ & $t_{s,fall}$ & $t_{int}$ & $A_{p,fall}$ & $A_{p,refl,0}$ & $A_{p,refl,1}$ & Ratio 0 & Ratio 1 \\
+\hline
+\endhead
+\hline
+\endfoot
+600.0 & 1.631 & 1.947 & 2.400 & 2.203 & 6.327e-05 & 2.190e-05 & 3.340e-05 & 34.62\% & 52.78\% \\
+
+\hline
+\end{longtable}
+
+\end{document}
