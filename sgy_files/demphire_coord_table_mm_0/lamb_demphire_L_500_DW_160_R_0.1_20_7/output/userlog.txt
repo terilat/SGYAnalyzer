@@ -1,0 +1,1122 @@
+reset
+set default element hex
+create surface rectangle width 1000 zplane
+webcut body 1 with plane xplane offset 0
+webcut body 1 with plane yplane offset 0
+delete Surface 3
+rotate Surface 4 5 angle -90 about Z include_merged
+webcut body 3 1 with plane yplane offset -250
+webcut body 5 1  with plane xplane offset -340
+webcut body 4 3  with plane xplane offset 340
+webcut body 7 1 9 3  with plane yplane offset -340
+surface all size 20
+mesh surface all
+imprint all
+merge all
+# MATERIAL 1
+create material 1
+modify material 1 name 'rock'
+modify material 1 set property 'MODULUS' value 2e+08
+modify material 1 set property 'POISSON' value 0.3
+modify material 1 set property 'DENSITY' value 1900
+# MATERIAL 2
+create material 2
+modify material 2 name 'rubber_left'
+modify material 2 set property 'MODULUS' value 2e+08
+modify material 2 set property 'POISSON' value 0.3
+modify material 2 set property 'DENSITY' value 1900
+# MATERIAL 3
+create material 3
+modify material 3 name 'rubber_right'
+modify material 3 set property 'MODULUS' value 2e+08
+modify material 3 set property 'POISSON' value 0.3
+modify material 3 set property 'DENSITY' value 1900
+# MATERIAL 4
+create material 4
+modify material 4 name 'rubber_bot'
+modify material 4 set property 'MODULUS' value 2e+08
+modify material 4 set property 'POISSON' value 0.3
+modify material 4 set property 'DENSITY' value 1900
+create table 1
+modify table 1 dependency x
+create table 2
+modify table 2 dependency x
+create table 3
+modify table 3 dependency y
+modify table 1 dependency x
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 insert row 1
+modify table 1 cell 1 1 value -340
+modify table 1 cell 2 1 value -350
+modify table 1 cell 3 1 value -360
+modify table 1 cell 4 1 value -370
+modify table 1 cell 5 1 value -380
+modify table 1 cell 6 1 value -390
+modify table 1 cell 7 1 value -400
+modify table 1 cell 8 1 value -410
+modify table 1 cell 9 1 value -420
+modify table 1 cell 10 1 value -430
+modify table 1 cell 11 1 value -440
+modify table 1 cell 12 1 value -450
+modify table 1 cell 13 1 value -460
+modify table 1 cell 14 1 value -470
+modify table 1 cell 15 1 value -480
+modify table 1 cell 16 1 value -490
+modify table 1 cell 17 1 value -500
+modify table 1 cell 1 2 value 0.0
+modify table 1 cell 2 2 value 0.0026451480302604633
+modify table 1 cell 3 2 value 0.021161184242083707
+modify table 1 cell 4 2 value 0.07141899681703251
+modify table 1 cell 5 2 value 0.16928947393666965
+modify table 1 cell 6 2 value 0.3306435037825579
+modify table 1 cell 7 2 value 0.5713519745362601
+modify table 1 cell 8 2 value 0.9072857743793389
+modify table 1 cell 9 2 value 1.3543157914933572
+modify table 1 cell 10 2 value 1.9283129140598778
+modify table 1 cell 11 2 value 2.6451480302604633
+modify table 1 cell 12 2 value 3.520692028276677
+modify table 1 cell 13 2 value 4.570815796290081
+modify table 1 cell 14 2 value 5.811390222482238
+modify table 1 cell 15 2 value 7.258286195034711
+modify table 1 cell 16 2 value 8.927374602129063
+modify table 1 cell 17 2 value 10.834526331946858
+modify table 2 dependency x
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 insert row 1
+modify table 2 cell 1 1 value 340
+modify table 2 cell 2 1 value 350
+modify table 2 cell 3 1 value 360
+modify table 2 cell 4 1 value 370
+modify table 2 cell 5 1 value 380
+modify table 2 cell 6 1 value 390
+modify table 2 cell 7 1 value 400
+modify table 2 cell 8 1 value 410
+modify table 2 cell 9 1 value 420
+modify table 2 cell 10 1 value 430
+modify table 2 cell 11 1 value 440
+modify table 2 cell 12 1 value 450
+modify table 2 cell 13 1 value 460
+modify table 2 cell 14 1 value 470
+modify table 2 cell 15 1 value 480
+modify table 2 cell 16 1 value 490
+modify table 2 cell 17 1 value 500
+modify table 2 cell 1 2 value 0.0
+modify table 2 cell 2 2 value 0.0026451480302604633
+modify table 2 cell 3 2 value 0.021161184242083707
+modify table 2 cell 4 2 value 0.07141899681703251
+modify table 2 cell 5 2 value 0.16928947393666965
+modify table 2 cell 6 2 value 0.3306435037825579
+modify table 2 cell 7 2 value 0.5713519745362601
+modify table 2 cell 8 2 value 0.9072857743793389
+modify table 2 cell 9 2 value 1.3543157914933572
+modify table 2 cell 10 2 value 1.9283129140598778
+modify table 2 cell 11 2 value 2.6451480302604633
+modify table 2 cell 12 2 value 3.520692028276677
+modify table 2 cell 13 2 value 4.570815796290081
+modify table 2 cell 14 2 value 5.811390222482238
+modify table 2 cell 15 2 value 7.258286195034711
+modify table 2 cell 16 2 value 8.927374602129063
+modify table 2 cell 17 2 value 10.834526331946858
+modify table 3 dependency y
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 insert row 1
+modify table 3 cell 1 1 value -340
+modify table 3 cell 2 1 value -350
+modify table 3 cell 3 1 value -360
+modify table 3 cell 4 1 value -370
+modify table 3 cell 5 1 value -380
+modify table 3 cell 6 1 value -390
+modify table 3 cell 7 1 value -400
+modify table 3 cell 8 1 value -410
+modify table 3 cell 9 1 value -420
+modify table 3 cell 10 1 value -430
+modify table 3 cell 11 1 value -440
+modify table 3 cell 12 1 value -450
+modify table 3 cell 13 1 value -460
+modify table 3 cell 14 1 value -470
+modify table 3 cell 15 1 value -480
+modify table 3 cell 16 1 value -490
+modify table 3 cell 17 1 value -500
+modify table 3 cell 1 2 value 0.0
+modify table 3 cell 2 2 value 0.0026451480302604633
+modify table 3 cell 3 2 value 0.021161184242083707
+modify table 3 cell 4 2 value 0.07141899681703251
+modify table 3 cell 5 2 value 0.16928947393666965
+modify table 3 cell 6 2 value 0.3306435037825579
+modify table 3 cell 7 2 value 0.5713519745362601
+modify table 3 cell 8 2 value 0.9072857743793389
+modify table 3 cell 9 2 value 1.3543157914933572
+modify table 3 cell 10 2 value 1.9283129140598778
+modify table 3 cell 11 2 value 2.6451480302604633
+modify table 3 cell 12 2 value 3.520692028276677
+modify table 3 cell 13 2 value 4.570815796290081
+modify table 3 cell 14 2 value 5.811390222482238
+modify table 3 cell 15 2 value 7.258286195034711
+modify table 3 cell 16 2 value 8.927374602129063
+modify table 3 cell 17 2 value 10.834526331946858
+modify material 2 set property 'MASS_MATRIX_DAMPING' table 1
+modify material 3 set property 'MASS_MATRIX_DAMPING' table 2
+modify material 4 set property 'MASS_MATRIX_DAMPING' table 3
+# BLOCKS
+# BLOCK 1
+set duplicate block elements off
+block 1 add surface 10 15 21 23
+block 1 name 'rock'
+block 1 material 1
+block 1 element plane order 7
+# BLOCK 2
+set duplicate block elements off
+block 2 add surface 11 19 18 
+block 2 name 'rubber_left'
+block 2 material 2
+block 2 element plane order 7
+# BLOCK 3
+set duplicate block elements off
+block 3 add surface 14 24 25 
+block 3 name 'rubber_right'
+block 3 material 3
+block 3 element plane order 7
+# BLOCK 4
+set duplicate block elements off
+block 4 add surface 20 22
+block 4 name 'rubber_bot'
+block 4 material 4
+block 4 element plane order 7
+create absorption on curve 28 58 54 40 36 52 48 73 75 21
+create force on vertex 10 force value 1 direction 0 -1 0
+bcdep force 1 value 'berlage(1e+8, 5, time)'
+create receiver on curve 31 33 displacement 1 1 0
+create receiver on curve 31 33 velocity 1 1 0
+create receiver on curve 31 33 acceleration 1 1 0
+analysis type dynamic elasticity dim2 planestrain preload off
+dynamic method full_solution scheme explicit maxtime 3 maxsteps 15000
+output nodalforce off energy off record3d on log on vtu on material off results everystep 200000
+calculation start path 'B:\\ELfimov\\Dissertation\\exps\\Lamb_demphire\\lamb_demphire_L_500_DW_160_R_0.1_20_7\\output.pvd'
+
+Available RAM is set to 100% (130909 Mb)
+Available CPU is set to 100% (12 threads)
+Calculation started at 2025-11-6 02:53:04
+Using 12 CPU threads of 12 available.
+Step     1. Time 0.00032235. Time step 3.22346832e-04. Done. Successfully.
+Step     2. Time 0.00064469. Time step 3.22346832e-04. Done. Successfully.
+Step     3. Time 0.00096704. Time step 3.22346832e-04. Done. Successfully.
+Step     4. Time 0.00128939. Time step 3.22346832e-04. Done. Successfully.
+Step     5. Time 0.00161173. Time step 3.22346832e-04. Done. Successfully.
+Step     6. Time 0.00193408. Time step 3.22346832e-04. Done. Successfully.
+Step     7. Time 0.00225643. Time step 3.22346832e-04. Done. Successfully.
+Step     8. Time 0.00257877. Time step 3.22346832e-04. Done. Successfully.
+Step     9. Time 0.00290112. Time step 3.22346832e-04. Done. Successfully.
+Step    10. Time 0.00322347. Time step 3.22346832e-04. Done. Successfully.
+Step    11. Time 0.00354582. Time step 3.22346832e-04. Done. Successfully.
+Step    12. Time 0.00386816. Time step 3.22346832e-04. Done. Successfully.
+Step    13. Time 0.00419051. Time step 3.22346832e-04. Done. Successfully.
+Step    14. Time 0.00451286. Time step 3.22346832e-04. Done. Successfully.
+Step    15. Time 0.00483520. Time step 3.22346832e-04. Done. Successfully.
+Step    16. Time 0.00515755. Time step 3.22346832e-04. Done. Successfully.
+Step    17. Time 0.00547990. Time step 3.22346832e-04. Done. Successfully.
+Step    18. Time 0.00580224. Time step 3.22346832e-04. Done. Successfully.
+Step    19. Time 0.00612459. Time step 3.22346832e-04. Done. Successfully.
+Step    20. Time 0.00644694. Time step 3.22346832e-04. Done. Successfully.
+Step    21. Time 0.00676928. Time step 3.22346832e-04. Done. Successfully.
+Step    22. Time 0.00709163. Time step 3.22346832e-04. Done. Successfully.
+Step    23. Time 0.00741398. Time step 3.22346832e-04. Done. Successfully.
+Step    24. Time 0.00773632. Time step 3.22346832e-04. Done. Successfully.
+Step    25. Time 0.00805867. Time step 3.22346832e-04. Done. Successfully.
+Step    26. Time 0.00838102. Time step 3.22346832e-04. Done. Successfully.
+Step    27. Time 0.00870336. Time step 3.22346832e-04. Done. Successfully.
+Step    28. Time 0.00902571. Time step 3.22346832e-04. Done. Successfully.
+Step    29. Time 0.00934806. Time step 3.22346832e-04. Done. Successfully.
+Step    30. Time 0.00967040. Time step 3.22346832e-04. Done. Successfully.
+Step    31. Time 0.00999275. Time step 3.22346832e-04. Done. Successfully.
+Step    32. Time 0.01031510. Time step 3.22346832e-04. Done. Successfully.
+Step    33. Time 0.01063745. Time step 3.22346832e-04. Done. Successfully.
+Step    34. Time 0.01095979. Time step 3.22346832e-04. Done. Successfully.
+Step    35. Time 0.01128214. Time step 3.22346832e-04. Done. Successfully.
+Step    36. Time 0.01160449. Time step 3.22346832e-04. Done. Successfully.
+Step    37. Time 0.01192683. Time step 3.22346832e-04. Done. Successfully.
+Step    38. Time 0.01224918. Time step 3.22346832e-04. Done. Successfully.
+Step    39. Time 0.01257153. Time step 3.22346832e-04. Done. Successfully.
+Step    40. Time 0.01289387. Time step 3.22346832e-04. Done. Successfully.
+Step    41. Time 0.01321622. Time step 3.22346832e-04. Done. Successfully.
+Step    42. Time 0.01353857. Time step 3.22346832e-04. Done. Successfully.
+Step    43. Time 0.01386091. Time step 3.22346832e-04. Done. Successfully.
+Step    44. Time 0.01418326. Time step 3.22346832e-04. Done. Successfully.
+Step    45. Time 0.01450561. Time step 3.22346832e-04. Done. Successfully.
+Step    46. Time 0.01482795. Time step 3.22346832e-04. Done. Successfully.
+Step    47. Time 0.01515030. Time step 3.22346832e-04. Done. Successfully.
+Step    48. Time 0.01547265. Time step 3.22346832e-04. Done. Successfully.
+Step    49. Time 0.01579499. Time step 3.22346832e-04. Done. Successfully.
+Step    50. Time 0.01611734. Time step 3.22346832e-04. Done. Successfully.
+Step    51. Time 0.01643969. Time step 3.22346832e-04. Done. Successfully.
+Step    52. Time 0.01676204. Time step 3.22346832e-04. Done. Successfully.
+Step    53. Time 0.01708438. Time step 3.22346832e-04. Done. Successfully.
+Step    54. Time 0.01740673. Time step 3.22346832e-04. Done. Successfully.
+Step    55. Time 0.01772908. Time step 3.22346832e-04. Done. Successfully.
+Step    56. Time 0.01805142. Time step 3.22346832e-04. Done. Successfully.
+Step    57. Time 0.01837377. Time step 3.22346832e-04. Done. Successfully.
+Step    58. Time 0.01869612. Time step 3.22346832e-04. Done. Successfully.
+Step    59. Time 0.01901846. Time step 3.22346832e-04. Done. Successfully.
+Step    60. Time 0.01934081. Time step 3.22346832e-04. Done. Successfully.
+Step    61. Time 0.01966316. Time step 3.22346832e-04. Done. Successfully.
+Step    62. Time 0.01998550. Time step 3.22346832e-04. Done. Successfully.
+Step    63. Time 0.02030785. Time step 3.22346832e-04. Done. Successfully.
+Step    64. Time 0.02063020. Time step 3.22346832e-04. Done. Successfully.
+Step    65. Time 0.02095254. Time step 3.22346832e-04. Done. Successfully.
+Step    66. Time 0.02127489. Time step 3.22346832e-04. Done. Successfully.
+Step    67. Time 0.02159724. Time step 3.22346832e-04. Done. Successfully.
+Step    68. Time 0.02191958. Time step 3.22346832e-04. Done. Successfully.
+Step    69. Time 0.02224193. Time step 3.22346832e-04. Done. Successfully.
+Step    70. Time 0.02256428. Time step 3.22346832e-04. Done. Successfully.
+Step    71. Time 0.02288663. Time step 3.22346832e-04. Done. Successfully.
+Step    72. Time 0.02320897. Time step 3.22346832e-04. Done. Successfully.
+Step    73. Time 0.02353132. Time step 3.22346832e-04. Done. Successfully.
+Step    74. Time 0.02385367. Time step 3.22346832e-04. Done. Successfully.
+Step    75. Time 0.02417601. Time step 3.22346832e-04. Done. Successfully.
+Step    76. Time 0.02449836. Time step 3.22346832e-04. Done. Successfully.
+Step    77. Time 0.02482071. Time step 3.22346832e-04. Done. Successfully.
+Step    78. Time 0.02514305. Time step 3.22346832e-04. Done. Successfully.
+Step    79. Time 0.02546540. Time step 3.22346832e-04. Done. Successfully.
+Step    80. Time 0.02578775. Time step 3.22346832e-04. Done. Successfully.
+Step    81. Time 0.02611009. Time step 3.22346832e-04. Done. Successfully.
+Step    82. Time 0.02643244. Time step 3.22346832e-04. Done. Successfully.
+Step    83. Time 0.02675479. Time step 3.22346832e-04. Done. Successfully.
+Step    84. Time 0.02707713. Time step 3.22346832e-04. Done. Successfully.
+Step    85. Time 0.02739948. Time step 3.22346832e-04. Done. Successfully.
+Step    86. Time 0.02772183. Time step 3.22346832e-04. Done. Successfully.
+Step    87. Time 0.02804417. Time step 3.22346832e-04. Done. Successfully.
+Step    88. Time 0.02836652. Time step 3.22346832e-04. Done. Successfully.
+Step    89. Time 0.02868887. Time step 3.22346832e-04. Done. Successfully.
+Step    90. Time 0.02901121. Time step 3.22346832e-04. Done. Successfully.
+Step    91. Time 0.02933356. Time step 3.22346832e-04. Done. Successfully.
+Step    92. Time 0.02965591. Time step 3.22346832e-04. Done. Successfully.
+Step    93. Time 0.02997826. Time step 3.22346832e-04. Done. Successfully.
+Step    94. Time 0.03030060. Time step 3.22346832e-04. Done. Successfully.
+Step    95. Time 0.03062295. Time step 3.22346832e-04. Done. Successfully.
+Step    96. Time 0.03094530. Time step 3.22346832e-04. Done. Successfully.
+Step    97. Time 0.03126764. Time step 3.22346832e-04. Done. Successfully.
+Step    98. Time 0.03158999. Time step 3.22346832e-04. Done. Successfully.
+Step    99. Time 0.03191234. Time step 3.22346832e-04. Done. Successfully.
+Step   100. Time 0.03223468. Time step 3.22346832e-04. Done. Successfully.
+Step   101. Time 0.03255703. Time step 3.22346832e-04. Done. Successfully.
+Step   102. Time 0.03287938. Time step 3.22346832e-04. Done. Successfully.
+Step   103. Time 0.03320172. Time step 3.22346832e-04. Done. Successfully.
+Step   104. Time 0.03352407. Time step 3.22346832e-04. Done. Successfully.
+Step   105. Time 0.03384642. Time step 3.22346832e-04. Done. Successfully.
+Step   106. Time 0.03416876. Time step 3.22346832e-04. Done. Successfully.
+Step   107. Time 0.03449111. Time step 3.22346832e-04. Done. Successfully.
+Step   108. Time 0.03481346. Time step 3.22346832e-04. Done. Successfully.
+Step   109. Time 0.03513580. Time step 3.22346832e-04. Done. Successfully.
+Step   110. Time 0.03545815. Time step 3.22346832e-04. Done. Successfully.
+Step   111. Time 0.03578050. Time step 3.22346832e-04. Done. Successfully.
+Step   112. Time 0.03610285. Time step 3.22346832e-04. Done. Successfully.
+Step   113. Time 0.03642519. Time step 3.22346832e-04. Done. Successfully.
+Step   114. Time 0.03674754. Time step 3.22346832e-04. Done. Successfully.
+Step   115. Time 0.03706989. Time step 3.22346832e-04. Done. Successfully.
+Step   116. Time 0.03739223. Time step 3.22346832e-04. Done. Successfully.
+Step   117. Time 0.03771458. Time step 3.22346832e-04. Done. Successfully.
+Step   118. Time 0.03803693. Time step 3.22346832e-04. Done. Successfully.
+Step   119. Time 0.03835927. Time step 3.22346832e-04. Done. Successfully.
+Step   120. Time 0.03868162. Time step 3.22346832e-04. Done. Successfully.
+Step   121. Time 0.03900397. Time step 3.22346832e-04. Done. Successfully.
+Step   122. Time 0.03932631. Time step 3.22346832e-04. Done. Successfully.
+Step   123. Time 0.03964866. Time step 3.22346832e-04. Done. Successfully.
+Step   124. Time 0.03997101. Time step 3.22346832e-04. Done. Successfully.
+Step   125. Time 0.04029335. Time step 3.22346832e-04. Done. Successfully.
+Step   126. Time 0.04061570. Time step 3.22346832e-04. Done. Successfully.
+Step   127. Time 0.04093805. Time step 3.22346832e-04. Done. Successfully.
+Step   128. Time 0.04126039. Time step 3.22346832e-04. Done. Successfully.
+Step   129. Time 0.04158274. Time step 3.22346832e-04. Done. Successfully.
+Step   130. Time 0.04190509. Time step 3.22346832e-04. Done. Successfully.
+Step   131. Time 0.04222744. Time step 3.22346832e-04. Done. Successfully.
+Step   132. Time 0.04254978. Time step 3.22346832e-04. Done. Successfully.
+Step   133. Time 0.04287213. Time step 3.22346832e-04. Done. Successfully.
+Step   134. Time 0.04319448. Time step 3.22346832e-04. Done. Successfully.
+Step   135. Time 0.04351682. Time step 3.22346832e-04. Done. Successfully.
+Step   136. Time 0.04383917. Time step 3.22346832e-04. Done. Successfully.
+Step   137. Time 0.04416152. Time step 3.22346832e-04. Done. Successfully.
+Step   138. Time 0.04448386. Time step 3.22346832e-04. Done. Successfully.
+Step   139. Time 0.04480621. Time step 3.22346832e-04. Done. Successfully.
+Step   140. Time 0.04512856. Time step 3.22346832e-04. Done. Successfully.
+Step   141. Time 0.04545090. Time step 3.22346832e-04. Done. Successfully.
+Step   142. Time 0.04577325. Time step 3.22346832e-04. Done. Successfully.
+Step   143. Time 0.04609560. Time step 3.22346832e-04. Done. Successfully.
+Step   144. Time 0.04641794. Time step 3.22346832e-04. Done. Successfully.
+Step   145. Time 0.04674029. Time step 3.22346832e-04. Done. Successfully.
+Step   146. Time 0.04706264. Time step 3.22346832e-04. Done. Successfully.
+Step   147. Time 0.04738498. Time step 3.22346832e-04. Done. Successfully.
+Step   148. Time 0.04770733. Time step 3.22346832e-04. Done. Successfully.
+Step   149. Time 0.04802968. Time step 3.22346832e-04. Done. Successfully.
+Step   150. Time 0.04835202. Time step 3.22346832e-04. Done. Successfully.
+Step   151. Time 0.04867437. Time step 3.22346832e-04. Done. Successfully.
+Step   152. Time 0.04899672. Time step 3.22346832e-04. Done. Successfully.
+Step   153. Time 0.04931907. Time step 3.22346832e-04. Done. Successfully.
+Step   154. Time 0.04964141. Time step 3.22346832e-04. Done. Successfully.
+Step   155. Time 0.04996376. Time step 3.22346832e-04. Done. Successfully.
+Step   156. Time 0.05028611. Time step 3.22346832e-04. Done. Successfully.
+Step   157. Time 0.05060845. Time step 3.22346832e-04. Done. Successfully.
+Step   158. Time 0.05093080. Time step 3.22346832e-04. Done. Successfully.
+Step   159. Time 0.05125315. Time step 3.22346832e-04. Done. Successfully.
+Step   160. Time 0.05157549. Time step 3.22346832e-04. Done. Successfully.
+Step   161. Time 0.05189784. Time step 3.22346832e-04. Done. Successfully.
+Step   162. Time 0.05222019. Time step 3.22346832e-04. Done. Successfully.
+Step   163. Time 0.05254253. Time step 3.22346832e-04. Done. Successfully.
+Step   164. Time 0.05286488. Time step 3.22346832e-04. Done. Successfully.
+Step   165. Time 0.05318723. Time step 3.22346832e-04. Done. Successfully.
+Step   166. Time 0.05350957. Time step 3.22346832e-04. Done. Successfully.
+Step   167. Time 0.05383192. Time step 3.22346832e-04. Done. Successfully.
+Step   168. Time 0.05415427. Time step 3.22346832e-04. Done. Successfully.
+Step   169. Time 0.05447661. Time step 3.22346832e-04. Done. Successfully.
+Step   170. Time 0.05479896. Time step 3.22346832e-04. Done. Successfully.
+Step   171. Time 0.05512131. Time step 3.22346832e-04. Done. Successfully.
+Step   172. Time 0.05544366. Time step 3.22346832e-04. Done. Successfully.
+Step   173. Time 0.05576600. Time step 3.22346832e-04. Done. Successfully.
+Step   174. Time 0.05608835. Time step 3.22346832e-04. Done. Successfully.
+Step   175. Time 0.05641070. Time step 3.22346832e-04. Done. Successfully.
+Step   176. Time 0.05673304. Time step 3.22346832e-04. Done. Successfully.
+Step   177. Time 0.05705539. Time step 3.22346832e-04. Done. Successfully.
+Step   178. Time 0.05737774. Time step 3.22346832e-04. Done. Successfully.
+Step   179. Time 0.05770008. Time step 3.22346832e-04. Done. Successfully.
+Step   180. Time 0.05802243. Time step 3.22346832e-04. Done. Successfully.
+Step   181. Time 0.05834478. Time step 3.22346832e-04. Done. Successfully.
+Step   182. Time 0.05866712. Time step 3.22346832e-04. Done. Successfully.
+Step   183. Time 0.05898947. Time step 3.22346832e-04. Done. Successfully.
+Step   184. Time 0.05931182. Time step 3.22346832e-04. Done. Successfully.
+Step   185. Time 0.05963416. Time step 3.22346832e-04. Done. Successfully.
+Step   186. Time 0.05995651. Time step 3.22346832e-04. Done. Successfully.
+Step   187. Time 0.06027886. Time step 3.22346832e-04. Done. Successfully.
+Step   188. Time 0.06060120. Time step 3.22346832e-04. Done. Successfully.
+Step   189. Time 0.06092355. Time step 3.22346832e-04. Done. Successfully.
+Step   190. Time 0.06124590. Time step 3.22346832e-04. Done. Successfully.
+Step   191. Time 0.06156825. Time step 3.22346832e-04. Done. Successfully.
+Step   192. Time 0.06189059. Time step 3.22346832e-04. Done. Successfully.
+Step   193. Time 0.06221294. Time step 3.22346832e-04. Done. Successfully.
+Step   194. Time 0.06253529. Time step 3.22346832e-04. Done. Successfully.
+Step   195. Time 0.06285763. Time step 3.22346832e-04. Done. Successfully.
+Step   196. Time 0.06317998. Time step 3.22346832e-04. Done. Successfully.
+Step   197. Time 0.06350233. Time step 3.22346832e-04. Done. Successfully.
+Step   198. Time 0.06382467. Time step 3.22346832e-04. Done. Successfully.
+Step   199. Time 0.06414702. Time step 3.22346832e-04. Done. Successfully.
+Step   200. Time 0.06446937. Time step 3.22346832e-04. Done. Successfully.
+Step   201. Time 0.06479171. Time step 3.22346832e-04. Done. Successfully.
+Step   202. Time 0.06511406. Time step 3.22346832e-04. Done. Successfully.
+Step   203. Time 0.06543641. Time step 3.22346832e-04. Done. Successfully.
+Step   204. Time 0.06575875. Time step 3.22346832e-04. Done. Successfully.
+Step   205. Time 0.06608110. Time step 3.22346832e-04. Done. Successfully.
+Step   206. Time 0.06640345. Time step 3.22346832e-04. Done. Successfully.
+Step   207. Time 0.06672579. Time step 3.22346832e-04. Done. Successfully.
+Step   208. Time 0.06704814. Time step 3.22346832e-04. Done. Successfully.
+Step   209. Time 0.06737049. Time step 3.22346832e-04. Done. Successfully.
+Step   210. Time 0.06769283. Time step 3.22346832e-04. Done. Successfully.
+Step   211. Time 0.06801518. Time step 3.22346832e-04. Done. Successfully.
+Step   212. Time 0.06833753. Time step 3.22346832e-04. Done. Successfully.
+Step   213. Time 0.06865988. Time step 3.22346832e-04. Done. Successfully.
+Step   214. Time 0.06898222. Time step 3.22346832e-04. Done. Successfully.
+Step   215. Time 0.06930457. Time step 3.22346832e-04. Done. Successfully.
+Step   216. Time 0.06962692. Time step 3.22346832e-04. Done. Successfully.
+Step   217. Time 0.06994926. Time step 3.22346832e-04. Done. Successfully.
+Step   218. Time 0.07027161. Time step 3.22346832e-04. Done. Successfully.
+Step   219. Time 0.07059396. Time step 3.22346832e-04. Done. Successfully.
+Step   220. Time 0.07091630. Time step 3.22346832e-04. Done. Successfully.
+Step   221. Time 0.07123865. Time step 3.22346832e-04. Done. Successfully.
+Step   222. Time 0.07156100. Time step 3.22346832e-04. Done. Successfully.
+Step   223. Time 0.07188334. Time step 3.22346832e-04. Done. Successfully.
+Step   224. Time 0.07220569. Time step 3.22346832e-04. Done. Successfully.
+Step   225. Time 0.07252804. Time step 3.22346832e-04. Done. Successfully.
+Step   226. Time 0.07285038. Time step 3.22346832e-04. Done. Successfully.
+Step   227. Time 0.07317273. Time step 3.22346832e-04. Done. Successfully.
+Step   228. Time 0.07349508. Time step 3.22346832e-04. Done. Successfully.
+Step   229. Time 0.07381742. Time step 3.22346832e-04. Done. Successfully.
+Step   230. Time 0.07413977. Time step 3.22346832e-04. Done. Successfully.
+Step   231. Time 0.07446212. Time step 3.22346832e-04. Done. Successfully.
+Step   232. Time 0.07478447. Time step 3.22346832e-04. Done. Successfully.
+Step   233. Time 0.07510681. Time step 3.22346832e-04. Done. Successfully.
+Step   234. Time 0.07542916. Time step 3.22346832e-04. Done. Successfully.
+Step   235. Time 0.07575151. Time step 3.22346832e-04. Done. Successfully.
+Step   236. Time 0.07607385. Time step 3.22346832e-04. Done. Successfully.
+Step   237. Time 0.07639620. Time step 3.22346832e-04. Done. Successfully.
+Step   238. Time 0.07671855. Time step 3.22346832e-04. Done. Successfully.
+Step   239. Time 0.07704089. Time step 3.22346832e-04. Done. Successfully.
+Step   240. Time 0.07736324. Time step 3.22346832e-04. Done. Successfully.
+Step   241. Time 0.07768559. Time step 3.22346832e-04. Done. Successfully.
+Step   242. Time 0.07800793. Time step 3.22346832e-04. Done. Successfully.
+Step   243. Time 0.07833028. Time step 3.22346832e-04. Done. Successfully.
+Step   244. Time 0.07865263. Time step 3.22346832e-04. Done. Successfully.
+Step   245. Time 0.07897497. Time step 3.22346832e-04. Done. Successfully.
+Step   246. Time 0.07929732. Time step 3.22346832e-04. Done. Successfully.
+Step   247. Time 0.07961967. Time step 3.22346832e-04. Done. Successfully.
+Step   248. Time 0.07994201. Time step 3.22346832e-04. Done. Successfully.
+Step   249. Time 0.08026436. Time step 3.22346832e-04. Done. Successfully.
+Step   250. Time 0.08058671. Time step 3.22346832e-04. Done. Successfully.
+Step   251. Time 0.08090905. Time step 3.22346832e-04. Done. Successfully.
+Step   252. Time 0.08123140. Time step 3.22346832e-04. Done. Successfully.
+Step   253. Time 0.08155375. Time step 3.22346832e-04. Done. Successfully.
+Step   254. Time 0.08187610. Time step 3.22346832e-04. Done. Successfully.
+Step   255. Time 0.08219844. Time step 3.22346832e-04. Done. Successfully.
+Step   256. Time 0.08252079. Time step 3.22346832e-04. Done. Successfully.
+Step   257. Time 0.08284314. Time step 3.22346832e-04. Done. Successfully.
+Step   258. Time 0.08316548. Time step 3.22346832e-04. Done. Successfully.
+Step   259. Time 0.08348783. Time step 3.22346832e-04. Done. Successfully.
+Step   260. Time 0.08381018. Time step 3.22346832e-04. Done. Successfully.
+Step   261. Time 0.08413252. Time step 3.22346832e-04. Done. Successfully.
+Step   262. Time 0.08445487. Time step 3.22346832e-04. Done. Successfully.
+Step   263. Time 0.08477722. Time step 3.22346832e-04. Done. Successfully.
+Step   264. Time 0.08509956. Time step 3.22346832e-04. Done. Successfully.
+Step   265. Time 0.08542191. Time step 3.22346832e-04. Done. Successfully.
+Step   266. Time 0.08574426. Time step 3.22346832e-04. Done. Successfully.
+Step   267. Time 0.08606660. Time step 3.22346832e-04. Done. Successfully.
+Step   268. Time 0.08638895. Time step 3.22346832e-04. Done. Successfully.
+Step   269. Time 0.08671130. Time step 3.22346832e-04. Done. Successfully.
+Step   270. Time 0.08703364. Time step 3.22346832e-04. Done. Successfully.
+Step   271. Time 0.08735599. Time step 3.22346832e-04. Done. Successfully.
+Step   272. Time 0.08767834. Time step 3.22346832e-04. Done. Successfully.
+Step   273. Time 0.08800069. Time step 3.22346832e-04. Done. Successfully.
+Step   274. Time 0.08832303. Time step 3.22346832e-04. Done. Successfully.
+Step   275. Time 0.08864538. Time step 3.22346832e-04. Done. Successfully.
+Step   276. Time 0.08896773. Time step 3.22346832e-04. Done. Successfully.
+Step   277. Time 0.08929007. Time step 3.22346832e-04. Done. Successfully.
+Step   278. Time 0.08961242. Time step 3.22346832e-04. Done. Successfully.
+Step   279. Time 0.08993477. Time step 3.22346832e-04. Done. Successfully.
+Step   280. Time 0.09025711. Time step 3.22346832e-04. Done. Successfully.
+Step   281. Time 0.09057946. Time step 3.22346832e-04. Done. Successfully.
+Step   282. Time 0.09090181. Time step 3.22346832e-04. Done. Successfully.
+Step   283. Time 0.09122415. Time step 3.22346832e-04. Done. Successfully.
+Step   284. Time 0.09154650. Time step 3.22346832e-04. Done. Successfully.
+Step   285. Time 0.09186885. Time step 3.22346832e-04. Done. Successfully.
+Step   286. Time 0.09219119. Time step 3.22346832e-04. Done. Successfully.
+Step   287. Time 0.09251354. Time step 3.22346832e-04. Done. Successfully.
+Step   288. Time 0.09283589. Time step 3.22346832e-04. Done. Successfully.
+Step   289. Time 0.09315823. Time step 3.22346832e-04. Done. Successfully.
+Step   290. Time 0.09348058. Time step 3.22346832e-04. Done. Successfully.
+Step   291. Time 0.09380293. Time step 3.22346832e-04. Done. Successfully.
+Step   292. Time 0.09412528. Time step 3.22346832e-04. Done. Successfully.
+Step   293. Time 0.09444762. Time step 3.22346832e-04. Done. Successfully.
+Step   294. Time 0.09476997. Time step 3.22346832e-04. Done. Successfully.
+Step   295. Time 0.09509232. Time step 3.22346832e-04. Done. Successfully.
+Step   296. Time 0.09541466. Time step 3.22346832e-04. Done. Successfully.
+Step   297. Time 0.09573701. Time step 3.22346832e-04. Done. Successfully.
+Step   298. Time 0.09605936. Time step 3.22346832e-04. Done. Successfully.
+Step   299. Time 0.09638170. Time step 3.22346832e-04. Done. Successfully.
+Step   300. Time 0.09670405. Time step 3.22346832e-04. Done. Successfully.
+Step   301. Time 0.09702640. Time step 3.22346832e-04. Done. Successfully.
+Step   302. Time 0.09734874. Time step 3.22346832e-04. Done. Successfully.
+Step   303. Time 0.09767109. Time step 3.22346832e-04. Done. Successfully.
+Step   304. Time 0.09799344. Time step 3.22346832e-04. Done. Successfully.
+Step   305. Time 0.09831578. Time step 3.22346832e-04. Done. Successfully.
+Step   306. Time 0.09863813. Time step 3.22346832e-04. Done. Successfully.
+Step   307. Time 0.09896048. Time step 3.22346832e-04. Done. Successfully.
+Step   308. Time 0.09928282. Time step 3.22346832e-04. Done. Successfully.
+Step   309. Time 0.09960517. Time step 3.22346832e-04. Done. Successfully.
+Step   310. Time 0.09992752. Time step 3.22346832e-04. Done. Successfully.
+Step   311. Time 0.10024986. Time step 3.22346832e-04. Done. Successfully.
+Step   312. Time 0.10057221. Time step 3.22346832e-04. Done. Successfully.
+Step   313. Time 0.10089456. Time step 3.22346832e-04. Done. Successfully.
+Step   314. Time 0.10121691. Time step 3.22346832e-04. Done. Successfully.
+Step   315. Time 0.10153925. Time step 3.22346832e-04. Done. Successfully.
+Step   316. Time 0.10186160. Time step 3.22346832e-04. Done. Successfully.
+Step   317. Time 0.10218395. Time step 3.22346832e-04. Done. Successfully.
+Step   318. Time 0.10250629. Time step 3.22346832e-04. Done. Successfully.
+Step   319. Time 0.10282864. Time step 3.22346832e-04. Done. Successfully.
+Step   320. Time 0.10315099. Time step 3.22346832e-04. Done. Successfully.
+Step   321. Time 0.10347333. Time step 3.22346832e-04. Done. Successfully.
+Step   322. Time 0.10379568. Time step 3.22346832e-04. Done. Successfully.
+Step   323. Time 0.10411803. Time step 3.22346832e-04. Done. Successfully.
+Step   324. Time 0.10444037. Time step 3.22346832e-04. Done. Successfully.
+Step   325. Time 0.10476272. Time step 3.22346832e-04. Done. Successfully.
+Step   326. Time 0.10508507. Time step 3.22346832e-04. Done. Successfully.
+Step   327. Time 0.10540741. Time step 3.22346832e-04. Done. Successfully.
+Step   328. Time 0.10572976. Time step 3.22346832e-04. Done. Successfully.
+Step   329. Time 0.10605211. Time step 3.22346832e-04. Done. Successfully.
+Step   330. Time 0.10637445. Time step 3.22346832e-04. Done. Successfully.
+Step   331. Time 0.10669680. Time step 3.22346832e-04. Done. Successfully.
+Step   332. Time 0.10701915. Time step 3.22346832e-04. Done. Successfully.
+Step   333. Time 0.10734150. Time step 3.22346832e-04. Done. Successfully.
+Step   334. Time 0.10766384. Time step 3.22346832e-04. Done. Successfully.
+Step   335. Time 0.10798619. Time step 3.22346832e-04. Done. Successfully.
+Step   336. Time 0.10830854. Time step 3.22346832e-04. Done. Successfully.
+Step   337. Time 0.10863088. Time step 3.22346832e-04. Done. Successfully.
+Step   338. Time 0.10895323. Time step 3.22346832e-04. Done. Successfully.
+Step   339. Time 0.10927558. Time step 3.22346832e-04. Done. Successfully.
+Step   340. Time 0.10959792. Time step 3.22346832e-04. Done. Successfully.
+Step   341. Time 0.10992027. Time step 3.22346832e-04. Done. Successfully.
+Step   342. Time 0.11024262. Time step 3.22346832e-04. Done. Successfully.
+Step   343. Time 0.11056496. Time step 3.22346832e-04. Done. Successfully.
+Step   344. Time 0.11088731. Time step 3.22346832e-04. Done. Successfully.
+Step   345. Time 0.11120966. Time step 3.22346832e-04. Done. Successfully.
+Step   346. Time 0.11153200. Time step 3.22346832e-04. Done. Successfully.
+Step   347. Time 0.11185435. Time step 3.22346832e-04. Done. Successfully.
+Step   348. Time 0.11217670. Time step 3.22346832e-04. Done. Successfully.
+Step   349. Time 0.11249904. Time step 3.22346832e-04. Done. Successfully.
+Step   350. Time 0.11282139. Time step 3.22346832e-04. Done. Successfully.
+Step   351. Time 0.11314374. Time step 3.22346832e-04. Done. Successfully.
+Step   352. Time 0.11346609. Time step 3.22346832e-04. Done. Successfully.
+Step   353. Time 0.11378843. Time step 3.22346832e-04. Done. Successfully.
+Step   354. Time 0.11411078. Time step 3.22346832e-04. Done. Successfully.
+Step   355. Time 0.11443313. Time step 3.22346832e-04. Done. Successfully.
+Step   356. Time 0.11475547. Time step 3.22346832e-04. Done. Successfully.
+Step   357. Time 0.11507782. Time step 3.22346832e-04. Done. Successfully.
+Step   358. Time 0.11540017. Time step 3.22346832e-04. Done. Successfully.
+Step   359. Time 0.11572251. Time step 3.22346832e-04. Done. Successfully.
+Step   360. Time 0.11604486. Time step 3.22346832e-04. Done. Successfully.
+Step   361. Time 0.11636721. Time step 3.22346832e-04. Done. Successfully.
+Step   362. Time 0.11668955. Time step 3.22346832e-04. Done. Successfully.
+Step   363. Time 0.11701190. Time step 3.22346832e-04. Done. Successfully.
+Step   364. Time 0.11733425. Time step 3.22346832e-04. Done. Successfully.
+Step   365. Time 0.11765659. Time step 3.22346832e-04. Done. Successfully.
+Step   366. Time 0.11797894. Time step 3.22346832e-04. Done. Successfully.
+Step   367. Time 0.11830129. Time step 3.22346832e-04. Done. Successfully.
+Step   368. Time 0.11862363. Time step 3.22346832e-04. Done. Successfully.
+Step   369. Time 0.11894598. Time step 3.22346832e-04. Done. Successfully.
+Step   370. Time 0.11926833. Time step 3.22346832e-04. Done. Successfully.
+Step   371. Time 0.11959067. Time step 3.22346832e-04. Done. Successfully.
+Step   372. Time 0.11991302. Time step 3.22346832e-04. Done. Successfully.
+Step   373. Time 0.12023537. Time step 3.22346832e-04. Done. Successfully.
+Step   374. Time 0.12055772. Time step 3.22346832e-04. Done. Successfully.
+Step   375. Time 0.12088006. Time step 3.22346832e-04. Done. Successfully.
+Step   376. Time 0.12120241. Time step 3.22346832e-04. Done. Successfully.
+Step   377. Time 0.12152476. Time step 3.22346832e-04. Done. Successfully.
+Step   378. Time 0.12184710. Time step 3.22346832e-04. Done. Successfully.
+Step   379. Time 0.12216945. Time step 3.22346832e-04. Done. Successfully.
+Step   380. Time 0.12249180. Time step 3.22346832e-04. Done. Successfully.
+Step   381. Time 0.12281414. Time step 3.22346832e-04. Done. Successfully.
+Step   382. Time 0.12313649. Time step 3.22346832e-04. Done. Successfully.
+Step   383. Time 0.12345884. Time step 3.22346832e-04. Done. Successfully.
+Step   384. Time 0.12378118. Time step 3.22346832e-04. Done. Successfully.
+Step   385. Time 0.12410353. Time step 3.22346832e-04. Done. Successfully.
+Step   386. Time 0.12442588. Time step 3.22346832e-04. Done. Successfully.
+Step   387. Time 0.12474822. Time step 3.22346832e-04. Done. Successfully.
+Step   388. Time 0.12507057. Time step 3.22346832e-04. Done. Successfully.
+Step   389. Time 0.12539292. Time step 3.22346832e-04. Done. Successfully.
+Step   390. Time 0.12571526. Time step 3.22346832e-04. Done. Successfully.
+Step   391. Time 0.12603761. Time step 3.22346832e-04. Done. Successfully.
+Step   392. Time 0.12635996. Time step 3.22346832e-04. Done. Successfully.
+Step   393. Time 0.12668231. Time step 3.22346832e-04. Done. Successfully.
+Step   394. Time 0.12700465. Time step 3.22346832e-04. Done. Successfully.
+Step   395. Time 0.12732700. Time step 3.22346832e-04. Done. Successfully.
+Step   396. Time 0.12764935. Time step 3.22346832e-04. Done. Successfully.
+Step   397. Time 0.12797169. Time step 3.22346832e-04. Done. Successfully.
+Step   398. Time 0.12829404. Time step 3.22346832e-04. Done. Successfully.
+Step   399. Time 0.12861639. Time step 3.22346832e-04. Done. Successfully.
+Step   400. Time 0.12893873. Time step 3.22346832e-04. Done. Successfully.
+Step   401. Time 0.12926108. Time step 3.22346832e-04. Done. Successfully.
+Step   402. Time 0.12958343. Time step 3.22346832e-04. Done. Successfully.
+Step   403. Time 0.12990577. Time step 3.22346832e-04. Done. Successfully.
+Step   404. Time 0.13022812. Time step 3.22346832e-04. Done. Successfully.
+Step   405. Time 0.13055047. Time step 3.22346832e-04. Done. Successfully.
+Step   406. Time 0.13087281. Time step 3.22346832e-04. Done. Successfully.
+Step   407. Time 0.13119516. Time step 3.22346832e-04. Done. Successfully.
+Step   408. Time 0.13151751. Time step 3.22346832e-04. Done. Successfully.
+Step   409. Time 0.13183985. Time step 3.22346832e-04. Done. Successfully.
+Step   410. Time 0.13216220. Time step 3.22346832e-04. Done. Successfully.
+Step   411. Time 0.13248455. Time step 3.22346832e-04. Done. Successfully.
+Step   412. Time 0.13280689. Time step 3.22346832e-04. Done. Successfully.
+Step   413. Time 0.13312924. Time step 3.22346832e-04. Done. Successfully.
+Step   414. Time 0.13345159. Time step 3.22346832e-04. Done. Successfully.
+Step   415. Time 0.13377394. Time step 3.22346832e-04. Done. Successfully.
+Step   416. Time 0.13409628. Time step 3.22346832e-04. Done. Successfully.
+Step   417. Time 0.13441863. Time step 3.22346832e-04. Done. Successfully.
+Step   418. Time 0.13474098. Time step 3.22346832e-04. Done. Successfully.
+Step   419. Time 0.13506332. Time step 3.22346832e-04. Done. Successfully.
+Step   420. Time 0.13538567. Time step 3.22346832e-04. Done. Successfully.
+Step   421. Time 0.13570802. Time step 3.22346832e-04. Done. Successfully.
+Step   422. Time 0.13603036. Time step 3.22346832e-04. Done. Successfully.
+Step   423. Time 0.13635271. Time step 3.22346832e-04. Done. Successfully.
+Step   424. Time 0.13667506. Time step 3.22346832e-04. Done. Successfully.
+Step   425. Time 0.13699740. Time step 3.22346832e-04. Done. Successfully.
+Step   426. Time 0.13731975. Time step 3.22346832e-04. Done. Successfully.
+Step   427. Time 0.13764210. Time step 3.22346832e-04. Done. Successfully.
+Step   428. Time 0.13796444. Time step 3.22346832e-04. Done. Successfully.
+Step   429. Time 0.13828679. Time step 3.22346832e-04. Done. Successfully.
+Step   430. Time 0.13860914. Time step 3.22346832e-04. Done. Successfully.
+Step   431. Time 0.13893148. Time step 3.22346832e-04. Done. Successfully.
+Step   432. Time 0.13925383. Time step 3.22346832e-04. Done. Successfully.
+Step   433. Time 0.13957618. Time step 3.22346832e-04. Done. Successfully.
+Step   434. Time 0.13989853. Time step 3.22346832e-04. Done. Successfully.
+Step   435. Time 0.14022087. Time step 3.22346832e-04. Done. Successfully.
+Step   436. Time 0.14054322. Time step 3.22346832e-04. Done. Successfully.
+Step   437. Time 0.14086557. Time step 3.22346832e-04. Done. Successfully.
+Step   438. Time 0.14118791. Time step 3.22346832e-04. Done. Successfully.
+Step   439. Time 0.14151026. Time step 3.22346832e-04. Done. Successfully.
+Step   440. Time 0.14183261. Time step 3.22346832e-04. Done. Successfully.
+Step   441. Time 0.14215495. Time step 3.22346832e-04. Done. Successfully.
+Step   442. Time 0.14247730. Time step 3.22346832e-04. Done. Successfully.
+Step   443. Time 0.14279965. Time step 3.22346832e-04. Done. Successfully.
+Step   444. Time 0.14312199. Time step 3.22346832e-04. Done. Successfully.
+Step   445. Time 0.14344434. Time step 3.22346832e-04. Done. Successfully.
+Step   446. Time 0.14376669. Time step 3.22346832e-04. Done. Successfully.
+Step   447. Time 0.14408903. Time step 3.22346832e-04. Done. Successfully.
+Step   448. Time 0.14441138. Time step 3.22346832e-04. Done. Successfully.
+Step   449. Time 0.14473373. Time step 3.22346832e-04. Done. Successfully.
+Step   450. Time 0.14505607. Time step 3.22346832e-04. Done. Successfully.
+Step   451. Time 0.14537842. Time step 3.22346832e-04. Done. Successfully.
+Step   452. Time 0.14570077. Time step 3.22346832e-04. Done. Successfully.
+Step   453. Time 0.14602312. Time step 3.22346832e-04. Done. Successfully.
+Step   454. Time 0.14634546. Time step 3.22346832e-04. Done. Successfully.
+Step   455. Time 0.14666781. Time step 3.22346832e-04. Done. Successfully.
+Step   456. Time 0.14699016. Time step 3.22346832e-04. Done. Successfully.
+Step   457. Time 0.14731250. Time step 3.22346832e-04. Done. Successfully.
+Step   458. Time 0.14763485. Time step 3.22346832e-04. Done. Successfully.
+Step   459. Time 0.14795720. Time step 3.22346832e-04. Done. Successfully.
+Step   460. Time 0.14827954. Time step 3.22346832e-04. Done. Successfully.
+Step   461. Time 0.14860189. Time step 3.22346832e-04. Done. Successfully.
+Step   462. Time 0.14892424. Time step 3.22346832e-04. Done. Successfully.
+Step   463. Time 0.14924658. Time step 3.22346832e-04. Done. Successfully.
+Step   464. Time 0.14956893. Time step 3.22346832e-04. Done. Successfully.
+Step   465. Time 0.14989128. Time step 3.22346832e-04. Done. Successfully.
+Step   466. Time 0.15021362. Time step 3.22346832e-04. Done. Successfully.
+Step   467. Time 0.15053597. Time step 3.22346832e-04. Done. Successfully.
+Step   468. Time 0.15085832. Time step 3.22346832e-04. Done. Successfully.
+Step   469. Time 0.15118066. Time step 3.22346832e-04. Done. Successfully.
+Step   470. Time 0.15150301. Time step 3.22346832e-04. Done. Successfully.
+Step   471. Time 0.15182536. Time step 3.22346832e-04. Done. Successfully.
+Step   472. Time 0.15214770. Time step 3.22346832e-04. Done. Successfully.
+Step   473. Time 0.15247005. Time step 3.22346832e-04. Done. Successfully.
+Step   474. Time 0.15279240. Time step 3.22346832e-04. Done. Successfully.
+Step   475. Time 0.15311475. Time step 3.22346832e-04. Done. Successfully.
+Step   476. Time 0.15343709. Time step 3.22346832e-04. Done. Successfully.
+Step   477. Time 0.15375944. Time step 3.22346832e-04. Done. Successfully.
+Step   478. Time 0.15408179. Time step 3.22346832e-04. Done. Successfully.
+Step   479. Time 0.15440413. Time step 3.22346832e-04. Done. Successfully.
+Step   480. Time 0.15472648. Time step 3.22346832e-04. Done. Successfully.
+Step   481. Time 0.15504883. Time step 3.22346832e-04. Done. Successfully.
+Step   482. Time 0.15537117. Time step 3.22346832e-04. Done. Successfully.
+Step   483. Time 0.15569352. Time step 3.22346832e-04. Done. Successfully.
+Step   484. Time 0.15601587. Time step 3.22346832e-04. Done. Successfully.
+Step   485. Time 0.15633821. Time step 3.22346832e-04. Done. Successfully.
+Step   486. Time 0.15666056. Time step 3.22346832e-04. Done. Successfully.
+Step   487. Time 0.15698291. Time step 3.22346832e-04. Done. Successfully.
+Step   488. Time 0.15730525. Time step 3.22346832e-04. Done. Successfully.
+Step   489. Time 0.15762760. Time step 3.22346832e-04. Done. Successfully.
+Step   490. Time 0.15794995. Time step 3.22346832e-04. Done. Successfully.
+Step   491. Time 0.15827229. Time step 3.22346832e-04. Done. Successfully.
+Step   492. Time 0.15859464. Time step 3.22346832e-04. Done. Successfully.
+Step   493. Time 0.15891699. Time step 3.22346832e-04. Done. Successfully.
+Step   494. Time 0.15923934. Time step 3.22346832e-04. Done. Successfully.
+Step   495. Time 0.15956168. Time step 3.22346832e-04. Done. Successfully.
+Step   496. Time 0.15988403. Time step 3.22346832e-04. Done. Successfully.
+Step   497. Time 0.16020638. Time step 3.22346832e-04. Done. Successfully.
+Step   498. Time 0.16052872. Time step 3.22346832e-04. Done. Successfully.
+Step   499. Time 0.16085107. Time step 3.22346832e-04. Done. Successfully.
+Step   500. Time 0.16117342. Time step 3.22346832e-04. Done. Successfully.
+Step   501. Time 0.16149576. Time step 3.22346832e-04. Done. Successfully.
+Step   502. Time 0.16181811. Time step 3.22346832e-04. Done. Successfully.
+Step   503. Time 0.16214046. Time step 3.22346832e-04. Done. Successfully.
+Step   504. Time 0.16246280. Time step 3.22346832e-04. Done. Successfully.
+Step   505. Time 0.16278515. Time step 3.22346832e-04. Done. Successfully.
+Step   506. Time 0.16310750. Time step 3.22346832e-04. Done. Successfully.
+Step   507. Time 0.16342984. Time step 3.22346832e-04. Done. Successfully.
+Step   508. Time 0.16375219. Time step 3.22346832e-04. Done. Successfully.
+Step   509. Time 0.16407454. Time step 3.22346832e-04. Done. Successfully.
+Step   510. Time 0.16439688. Time step 3.22346832e-04. Done. Successfully.
+Step   511. Time 0.16471923. Time step 3.22346832e-04. Done. Successfully.
+Step   512. Time 0.16504158. Time step 3.22346832e-04. Done. Successfully.
+Step   513. Time 0.16536393. Time step 3.22346832e-04. Done. Successfully.
+Step   514. Time 0.16568627. Time step 3.22346832e-04. Done. Successfully.
+Step   515. Time 0.16600862. Time step 3.22346832e-04. Done. Successfully.
+Step   516. Time 0.16633097. Time step 3.22346832e-04. Done. Successfully.
+Step   517. Time 0.16665331. Time step 3.22346832e-04. Done. Successfully.
+Step   518. Time 0.16697566. Time step 3.22346832e-04. Done. Successfully.
+Step   519. Time 0.16729801. Time step 3.22346832e-04. Done. Successfully.
+Step   520. Time 0.16762035. Time step 3.22346832e-04. Done. Successfully.
+Step   521. Time 0.16794270. Time step 3.22346832e-04. Done. Successfully.
+Step   522. Time 0.16826505. Time step 3.22346832e-04. Done. Successfully.
+Step   523. Time 0.16858739. Time step 3.22346832e-04. Done. Successfully.
+Step   524. Time 0.16890974. Time step 3.22346832e-04. Done. Successfully.
+Step   525. Time 0.16923209. Time step 3.22346832e-04. Done. Successfully.
+Step   526. Time 0.16955443. Time step 3.22346832e-04. Done. Successfully.
+Step   527. Time 0.16987678. Time step 3.22346832e-04. Done. Successfully.
+Step   528. Time 0.17019913. Time step 3.22346832e-04. Done. Successfully.
+Step   529. Time 0.17052147. Time step 3.22346832e-04. Done. Successfully.
+Step   530. Time 0.17084382. Time step 3.22346832e-04. Done. Successfully.
+Step   531. Time 0.17116617. Time step 3.22346832e-04. Done. Successfully.
+Step   532. Time 0.17148851. Time step 3.22346832e-04. Done. Successfully.
+Step   533. Time 0.17181086. Time step 3.22346832e-04. Done. Successfully.
+Step   534. Time 0.17213321. Time step 3.22346832e-04. Done. Successfully.
+Step   535. Time 0.17245556. Time step 3.22346832e-04. Done. Successfully.
+Step   536. Time 0.17277790. Time step 3.22346832e-04. Done. Successfully.
+Step   537. Time 0.17310025. Time step 3.22346832e-04. Done. Successfully.
+Step   538. Time 0.17342260. Time step 3.22346832e-04. Done. Successfully.
+Step   539. Time 0.17374494. Time step 3.22346832e-04. Done. Successfully.
+Step   540. Time 0.17406729. Time step 3.22346832e-04. Done. Successfully.
+Step   541. Time 0.17438964. Time step 3.22346832e-04. Done. Successfully.
+Step   542. Time 0.17471198. Time step 3.22346832e-04. Done. Successfully.
+Step   543. Time 0.17503433. Time step 3.22346832e-04. Done. Successfully.
+Step   544. Time 0.17535668. Time step 3.22346832e-04. Done. Successfully.
+Step   545. Time 0.17567902. Time step 3.22346832e-04. Done. Successfully.
+Step   546. Time 0.17600137. Time step 3.22346832e-04. Done. Successfully.
+Step   547. Time 0.17632372. Time step 3.22346832e-04. Done. Successfully.
+Step   548. Time 0.17664606. Time step 3.22346832e-04. Done. Successfully.
+Step   549. Time 0.17696841. Time step 3.22346832e-04. Done. Successfully.
+Step   550. Time 0.17729076. Time step 3.22346832e-04. Done. Successfully.
+Step   551. Time 0.17761310. Time step 3.22346832e-04. Done. Successfully.
+Step   552. Time 0.17793545. Time step 3.22346832e-04. Done. Successfully.
+Step   553. Time 0.17825780. Time step 3.22346832e-04. Done. Successfully.
+Step   554. Time 0.17858015. Time step 3.22346832e-04. Done. Successfully.
+Step   555. Time 0.17890249. Time step 3.22346832e-04. Done. Successfully.
+Step   556. Time 0.17922484. Time step 3.22346832e-04. Done. Successfully.
+Step   557. Time 0.17954719. Time step 3.22346832e-04. Done. Successfully.
+Step   558. Time 0.17986953. Time step 3.22346832e-04. Done. Successfully.
+Step   559. Time 0.18019188. Time step 3.22346832e-04. Done. Successfully.
+Step   560. Time 0.18051423. Time step 3.22346832e-04. Done. Successfully.
+Step   561. Time 0.18083657. Time step 3.22346832e-04. Done. Successfully.
+Step   562. Time 0.18115892. Time step 3.22346832e-04. Done. Successfully.
+Step   563. Time 0.18148127. Time step 3.22346832e-04. Done. Successfully.
+Step   564. Time 0.18180361. Time step 3.22346832e-04. Done. Successfully.
+Step   565. Time 0.18212596. Time step 3.22346832e-04. Done. Successfully.
+Step   566. Time 0.18244831. Time step 3.22346832e-04. Done. Successfully.
+Step   567. Time 0.18277065. Time step 3.22346832e-04. Done. Successfully.
+Step   568. Time 0.18309300. Time step 3.22346832e-04. Done. Successfully.
+Step   569. Time 0.18341535. Time step 3.22346832e-04. Done. Successfully.
+Step   570. Time 0.18373769. Time step 3.22346832e-04. Done. Successfully.
+Step   571. Time 0.18406004. Time step 3.22346832e-04. Done. Successfully.
+Step   572. Time 0.18438239. Time step 3.22346832e-04. Done. Successfully.
+Step   573. Time 0.18470474. Time step 3.22346832e-04. Done. Successfully.
+Step   574. Time 0.18502708. Time step 3.22346832e-04. Done. Successfully.
+Step   575. Time 0.18534943. Time step 3.22346832e-04. Done. Successfully.
+Step   576. Time 0.18567178. Time step 3.22346832e-04. Done. Successfully.
+Step   577. Time 0.18599412. Time step 3.22346832e-04. Done. Successfully.
+Step   578. Time 0.18631647. Time step 3.22346832e-04. Done. Successfully.
+Step   579. Time 0.18663882. Time step 3.22346832e-04. Done. Successfully.
+Step   580. Time 0.18696116. Time step 3.22346832e-04. Done. Successfully.
+Step   581. Time 0.18728351. Time step 3.22346832e-04. Done. Successfully.
+Step   582. Time 0.18760586. Time step 3.22346832e-04. Done. Successfully.
+Step   583. Time 0.18792820. Time step 3.22346832e-04. Done. Successfully.
+Step   584. Time 0.18825055. Time step 3.22346832e-04. Done. Successfully.
+Step   585. Time 0.18857290. Time step 3.22346832e-04. Done. Successfully.
+Step   586. Time 0.18889524. Time step 3.22346832e-04. Done. Successfully.
+Step   587. Time 0.18921759. Time step 3.22346832e-04. Done. Successfully.
+Step   588. Time 0.18953994. Time step 3.22346832e-04. Done. Successfully.
+Step   589. Time 0.18986228. Time step 3.22346832e-04. Done. Successfully.
+Step   590. Time 0.19018463. Time step 3.22346832e-04. Done. Successfully.
+Step   591. Time 0.19050698. Time step 3.22346832e-04. Done. Successfully.
+Step   592. Time 0.19082932. Time step 3.22346832e-04. Done. Successfully.
+Step   593. Time 0.19115167. Time step 3.22346832e-04. Done. Successfully.
+Step   594. Time 0.19147402. Time step 3.22346832e-04. Done. Successfully.
+Step   595. Time 0.19179637. Time step 3.22346832e-04. Done. Successfully.
+Step   596. Time 0.19211871. Time step 3.22346832e-04. Done. Successfully.
+Step   597. Time 0.19244106. Time step 3.22346832e-04. Done. Successfully.
+Step   598. Time 0.19276341. Time step 3.22346832e-04. Done. Successfully.
+Step   599. Time 0.19308575. Time step 3.22346832e-04. Done. Successfully.
+Step   600. Time 0.19340810. Time step 3.22346832e-04. Done. Successfully.
+Step   601. Time 0.19373045. Time step 3.22346832e-04. Done. Successfully.
+Step   602. Time 0.19405279. Time step 3.22346832e-04. Done. Successfully.
+Step   603. Time 0.19437514. Time step 3.22346832e-04. Done. Successfully.
+Step   604. Time 0.19469749. Time step 3.22346832e-04. Done. Successfully.
+Step   605. Time 0.19501983. Time step 3.22346832e-04. Done. Successfully.
+Step   606. Time 0.19534218. Time step 3.22346832e-04. Done. Successfully.
+Step   607. Time 0.19566453. Time step 3.22346832e-04. Done. Successfully.
+Step   608. Time 0.19598687. Time step 3.22346832e-04. Done. Successfully.
+Step   609. Time 0.19630922. Time step 3.22346832e-04. Done. Successfully.
+Step   610. Time 0.19663157. Time step 3.22346832e-04. Done. Successfully.
+Step   611. Time 0.19695391. Time step 3.22346832e-04. Done. Successfully.
+Step   612. Time 0.19727626. Time step 3.22346832e-04. Done. Successfully.
+Step   613. Time 0.19759861. Time step 3.22346832e-04. Done. Successfully.
+Step   614. Time 0.19792096. Time step 3.22346832e-04. Done. Successfully.
+Step   615. Time 0.19824330. Time step 3.22346832e-04. Done. Successfully.
+Step   616. Time 0.19856565. Time step 3.22346832e-04. Done. Successfully.
+Step   617. Time 0.19888800. Time step 3.22346832e-04. Done. Successfully.
+Step   618. Time 0.19921034. Time step 3.22346832e-04. Done. Successfully.
+Step   619. Time 0.19953269. Time step 3.22346832e-04. Done. Successfully.
+Step   620. Time 0.19985504. Time step 3.22346832e-04. Done. Successfully.
+Step   621. Time 0.20017738. Time step 3.22346832e-04. Done. Successfully.
+Step   622. Time 0.20049973. Time step 3.22346832e-04. Done. Successfully.
+Step   623. Time 0.20082208. Time step 3.22346832e-04. Done. Successfully.
+Step   624. Time 0.20114442. Time step 3.22346832e-04. Done. Successfully.
+Step   625. Time 0.20146677. Time step 3.22346832e-04. Done. Successfully.
+Step   626. Time 0.20178912. Time step 3.22346832e-04. Done. Successfully.
+Step   627. Time 0.20211146. Time step 3.22346832e-04. Done. Successfully.
+Step   628. Time 0.20243381. Time step 3.22346832e-04. Done. Successfully.
+Step   629. Time 0.20275616. Time step 3.22346832e-04. Done. Successfully.
+Step   630. Time 0.20307850. Time step 3.22346832e-04. Done. Successfully.
+Step   631. Time 0.20340085. Time step 3.22346832e-04. Done. Successfully.
+Step   632. Time 0.20372320. Time step 3.22346832e-04. Done. Successfully.
+Step   633. Time 0.20404554. Time step 3.22346832e-04. Done. Successfully.
+Step   634. Time 0.20436789. Time step 3.22346832e-04. Done. Successfully.
+Step   635. Time 0.20469024. Time step 3.22346832e-04. Done. Successfully.
+Step   636. Time 0.20501259. Time step 3.22346832e-04. Done. Successfully.
+Step   637. Time 0.20533493. Time step 3.22346832e-04. Done. Successfully.
+Step   638. Time 0.20565728. Time step 3.22346832e-04. Done. Successfully.
+Step   639. Time 0.20597963. Time step 3.22346832e-04. Done. Successfully.
+Step   640. Time 0.20630197. Time step 3.22346832e-04. Done. Successfully.
+Step   641. Time 0.20662432. Time step 3.22346832e-04. Done. Successfully.
+Step   642. Time 0.20694667. Time step 3.22346832e-04. Done. Successfully.
+Step   643. Time 0.20726901. Time step 3.22346832e-04. Done. Successfully.
+Step   644. Time 0.20759136. Time step 3.22346832e-04. Done. Successfully.
+Step   645. Time 0.20791371. Time step 3.22346832e-04. Done. Successfully.
+Step   646. Time 0.20823605. Time step 3.22346832e-04. Done. Successfully.
+Step   647. Time 0.20855840. Time step 3.22346832e-04. Done. Successfully.
+Step   648. Time 0.20888075. Time step 3.22346832e-04. Done. Successfully.
+Step   649. Time 0.20920309. Time step 3.22346832e-04. Done. Successfully.
+Step   650. Time 0.20952544. Time step 3.22346832e-04. Done. Successfully.
+Step   651. Time 0.20984779. Time step 3.22346832e-04. Done. Successfully.
+Step   652. Time 0.21017013. Time step 3.22346832e-04. Done. Successfully.
+Step   653. Time 0.21049248. Time step 3.22346832e-04. Done. Successfully.
+Step   654. Time 0.21081483. Time step 3.22346832e-04. Done. Successfully.
+Step   655. Time 0.21113718. Time step 3.22346832e-04. Done. Successfully.
+Step   656. Time 0.21145952. Time step 3.22346832e-04. Done. Successfully.
+Step   657. Time 0.21178187. Time step 3.22346832e-04. Done. Successfully.
+Step   658. Time 0.21210422. Time step 3.22346832e-04. Done. Successfully.
+Step   659. Time 0.21242656. Time step 3.22346832e-04. Done. Successfully.
+Step   660. Time 0.21274891. Time step 3.22346832e-04. Done. Successfully.
+Step   661. Time 0.21307126. Time step 3.22346832e-04. Done. Successfully.
+Step   662. Time 0.21339360. Time step 3.22346832e-04. Done. Successfully.
+Step   663. Time 0.21371595. Time step 3.22346832e-04. Done. Successfully.
+Step   664. Time 0.21403830. Time step 3.22346832e-04. Done. Successfully.
+Step   665. Time 0.21436064. Time step 3.22346832e-04. Done. Successfully.
+Step   666. Time 0.21468299. Time step 3.22346832e-04. Done. Successfully.
+Step   667. Time 0.21500534. Time step 3.22346832e-04. Done. Successfully.
+Step   668. Time 0.21532768. Time step 3.22346832e-04. Done. Successfully.
+Step   669. Time 0.21565003. Time step 3.22346832e-04. Done. Successfully.
+Step   670. Time 0.21597238. Time step 3.22346832e-04. Done. Successfully.
+Step   671. Time 0.21629472. Time step 3.22346832e-04. Done. Successfully.
+Step   672. Time 0.21661707. Time step 3.22346832e-04. Done. Successfully.
+Step   673. Time 0.21693942. Time step 3.22346832e-04. Done. Successfully.
+Step   674. Time 0.21726177. Time step 3.22346832e-04. Done. Successfully.
+Step   675. Time 0.21758411. Time step 3.22346832e-04. Done. Successfully.
+Step   676. Time 0.21790646. Time step 3.22346832e-04. Done. Successfully.
+Step   677. Time 0.21822881. Time step 3.22346832e-04. Done. Successfully.
+Step   678. Time 0.21855115. Time step 3.22346832e-04. Done. Successfully.
+Step   679. Time 0.21887350. Time step 3.22346832e-04. Done. Successfully.
+Step   680. Time 0.21919585. Time step 3.22346832e-04. Done. Successfully.
+Step   681. Time 0.21951819. Time step 3.22346832e-04. Done. Successfully.
+Step   682. Time 0.21984054. Time step 3.22346832e-04. Done. Successfully.
+Step   683. Time 0.22016289. Time step 3.22346832e-04. Done. Successfully.
+Step   684. Time 0.22048523. Time step 3.22346832e-04. Done. Successfully.
+Step   685. Time 0.22080758. Time step 3.22346832e-04. Done. Successfully.
+Step   686. Time 0.22112993. Time step 3.22346832e-04. Done. Successfully.
+Step   687. Time 0.22145227. Time step 3.22346832e-04. Done. Successfully.
+Step   688. Time 0.22177462. Time step 3.22346832e-04. Done. Successfully.
+Step   689. Time 0.22209697. Time step 3.22346832e-04. Done. Successfully.
+Step   690. Time 0.22241931. Time step 3.22346832e-04. Done. Successfully.
+Step   691. Time 0.22274166. Time step 3.22346832e-04. Done. Successfully.
+Step   692. Time 0.22306401. Time step 3.22346832e-04. Done. Successfully.
+Step   693. Time 0.22338635. Time step 3.22346832e-04. Done. Successfully.
+Step   694. Time 0.22370870. Time step 3.22346832e-04. Done. Successfully.
+Step   695. Time 0.22403105. Time step 3.22346832e-04. Done. Successfully.
+Step   696. Time 0.22435340. Time step 3.22346832e-04. Done. Successfully.
+Step   697. Time 0.22467574. Time step 3.22346832e-04. Done. Successfully.
+Step   698. Time 0.22499809. Time step 3.22346832e-04. Done. Successfully.
+Step   699. Time 0.22532044. Time step 3.22346832e-04. Done. Successfully.
+Step   700. Time 0.22564278. Time step 3.22346832e-04. Done. Successfully.
+Step   701. Time 0.22596513. Time step 3.22346832e-04. Done. Successfully.
+Step   702. Time 0.22628748. Time step 3.22346832e-04. Done. Successfully.
+Step   703. Time 0.22660982. Time step 3.22346832e-04. Done. Successfully.
+Step   704. Time 0.22693217. Time step 3.22346832e-04. Done. Successfully.
+Step   705. Time 0.22725452. Time step 3.22346832e-04. Done. Successfully.
+Step   706. Time 0.22757686. Time step 3.22346832e-04. Done. Successfully.
+Step   707. Time 0.22789921. Time step 3.22346832e-04. Done. Successfully.
+Step   708. Time 0.22822156. Time step 3.22346832e-04. Done. Successfully.
+Step   709. Time 0.22854390. Time step 3.22346832e-04. Done. Successfully.
+Step   710. Time 0.22886625. Time step 3.22346832e-04. Done. Successfully.
+Step   711. Time 0.22918860. Time step 3.22346832e-04. Done. Successfully.
+Step   712. Time 0.22951094. Time step 3.22346832e-04. Done. Successfully.
+Step   713. Time 0.22983329. Time step 3.22346832e-04. Done. Successfully.
+Step   714. Time 0.23015564. Time step 3.22346832e-04. Done. Successfully.
+Step   715. Time 0.23047799. Time step 3.22346832e-04. Done. Successfully.
+Step   716. Time 0.23080033. Time step 3.22346832e-04. Done. Successfully.
+Step   717. Time 0.23112268. Time step 3.22346832e-04. Done. Successfully.
+Step   718. Time 0.23144503. Time step 3.22346832e-04. Done. Successfully.
+Step   719. Time 0.23176737. Time step 3.22346832e-04. Done. Successfully.
+Step   720. Time 0.23208972. Time step 3.22346832e-04. Done. Successfully.
+Step   721. Time 0.23241207. Time step 3.22346832e-04. Done. Successfully.
+Step   722. Time 0.23273441. Time step 3.22346832e-04. Done. Successfully.
+Step   723. Time 0.23305676. Time step 3.22346832e-04. Done. Successfully.
+Step   724. Time 0.23337911. Time step 3.22346832e-04. Done. Successfully.
+Step   725. Time 0.23370145. Time step 3.22346832e-04. Done. Successfully.
+Step   726. Time 0.23402380. Time step 3.22346832e-04. Done. Successfully.
+Step   727. Time 0.23434615. Time step 3.22346832e-04. Done. Successfully.
+Step   728. Time 0.23466849. Time step 3.22346832e-04. Done. Successfully.
+Step   729. Time 0.23499084. Time step 3.22346832e-04. Done. Successfully.
+Step   730. Time 0.23531319. Time step 3.22346832e-04. Done. Successfully.
+Step   731. Time 0.23563553. Time step 3.22346832e-04. Done. Successfully.
+Step   732. Time 0.23595788. Time step 3.22346832e-04. Done. Successfully.
+Step   733. Time 0.23628023. Time step 3.22346832e-04. Done. Successfully.
+Step   734. Time 0.23660258. Time step 3.22346832e-04. Done. Successfully.
+Step   735. Time 0.23692492. Time step 3.22346832e-04. Done. Successfully.
+Step   736. Time 0.23724727. Time step 3.22346832e-04. Done. Successfully.
+Step   737. Time 0.23756962. Time step 3.22346832e-04. Done. Successfully.
+Step   738. Time 0.23789196. Time step 3.22346832e-04. Done. Successfully.
+Step   739. Time 0.23821431. Time step 3.22346832e-04. Done. Successfully.
+Step   740. Time 0.23853666. Time step 3.22346832e-04. Done. Successfully.
+Step   741. Time 0.23885900. Time step 3.22346832e-04. Done. Successfully.
+Step   742. Time 0.23918135. Time step 3.22346832e-04. Done. Successfully.
+Step   743. Time 0.23950370. Time step 3.22346832e-04. Done. Successfully.
+Step   744. Time 0.23982604. Time step 3.22346832e-04. Done. Successfully.
+Step   745. Time 0.24014839. Time step 3.22346832e-04. Done. Successfully.
+Step   746. Time 0.24047074. Time step 3.22346832e-04. Done. Successfully.
+Step   747. Time 0.24079308. Time step 3.22346832e-04. Done. Successfully.
+Step   748. Time 0.24111543. Time step 3.22346832e-04. Done. Successfully.
+Step   749. Time 0.24143778. Time step 3.22346832e-04. Done. Successfully.
+Step   750. Time 0.24176012. Time step 3.22346832e-04. Done. Successfully.
+Step   751. Time 0.24208247. Time step 3.22346832e-04. Done. Successfully.
+Step   752. Time 0.24240482. Time step 3.22346832e-04. Done. Successfully.
+Step   753. Time 0.24272716. Time step 3.22346832e-04. Done. Successfully.
+Step   754. Time 0.24304951. Time step 3.22346832e-04. Done. Successfully.
+Step   755. Time 0.24337186. Time step 3.22346832e-04. Done. Successfully.
+Step   756. Time 0.24369421. Time step 3.22346832e-04. Done. Successfully.
+Step   757. Time 0.24401655. Time step 3.22346832e-04. Done. Successfully.
+Step   758. Time 0.24433890. Time step 3.22346832e-04. Done. Successfully.
+Step   759. Time 0.24466125. Time step 3.22346832e-04. Done. Successfully.
+Step   760. Time 0.24498359. Time step 3.22346832e-04. Done. Successfully.
+Step   761. Time 0.24530594. Time step 3.22346832e-04. Done. Successfully.
+Step   762. Time 0.24562829. Time step 3.22346832e-04. Done. Successfully.
+Step   763. Time 0.24595063. Time step 3.22346832e-04. Done. Successfully.
+Step   764. Time 0.24627298. Time step 3.22346832e-04. Done. Successfully.
+Step   765. Time 0.24659533. Time step 3.22346832e-04. Done. Successfully.
+Step   766. Time 0.24691767. Time step 3.22346832e-04. Done. Successfully.
+Step   767. Time 0.24724002. Time step 3.22346832e-04. Done. Successfully.
+Step   768. Time 0.24756237. Time step 3.22346832e-04. Done. Successfully.
+Step   769. Time 0.24788471. Time step 3.22346832e-04. Done. Successfully.
+Step   770. Time 0.24820706. Time step 3.22346832e-04. Done. Successfully.
+Step   771. Time 0.24852941. Time step 3.22346832e-04. Done. Successfully.
+Step   772. Time 0.24885175. Time step 3.22346832e-04. Done. Successfully.
+Step   773. Time 0.24917410. Time step 3.22346832e-04. Done. Successfully.
+Step   774. Time 0.24949645. Time step 3.22346832e-04. Done. Successfully.
+Step   775. Time 0.24981880. Time step 3.22346832e-04. Done. Successfully.
+Step   776. Time 0.25014114. Time step 3.22346832e-04. Done. Successfully.
+Step   777. Time 0.25046349. Time step 3.22346832e-04. Done. Successfully.
+Step   778. Time 0.25078584. Time step 3.22346832e-04. Done. Successfully.
+Step   779. Time 0.25110818. Time step 3.22346832e-04. Done. Successfully.
+Step   780. Time 0.25143053. Time step 3.22346832e-04. Done. Successfully.
+Step   781. Time 0.25175288. Time step 3.22346832e-04. Done. Successfully.
+Step   782. Time 0.25207522. Time step 3.22346832e-04. Done. Successfully.
+Step   783. Time 0.25239757. Time step 3.22346832e-04. Done. Successfully.
+Step   784. Time 0.25271992. Time step 3.22346832e-04. Done. Successfully.
+Step   785. Time 0.25304226. Time step 3.22346832e-04. Done. Successfully.
+Step   786. Time 0.25336461. Time step 3.22346832e-04. Done. Successfully.
+Step   787. Time 0.25368696. Time step 3.22346832e-04. Done. Successfully.
+Step   788. Time 0.25400930. Time step 3.22346832e-04. Done. Successfully.
+Step   789. Time 0.25433165. Time step 3.22346832e-04. Done. Successfully.
+Step   790. Time 0.25465400. Time step 3.22346832e-04. Done. Successfully.
+Step   791. Time 0.25497634. Time step 3.22346832e-04. Done. Successfully.
+Step   792. Time 0.25529869. Time step 3.22346832e-04. Done. Successfully.
+Step   793. Time 0.25562104. Time step 3.22346832e-04. Done. Successfully.
+Step   794. Time 0.25594338. Time step 3.22346832e-04. Done. Successfully.
+Step   795. Time 0.25626573. Time step 3.22346832e-04. Done. Successfully.
+Step   796. Time 0.25658808. Time step 3.22346832e-04. Done. Successfully.
+Step   797. Time 0.25691043. Time step 3.22346832e-04. Done. Successfully.
+Step   798. Time 0.25723277. Time step 3.22346832e-04. Done. Successfully.
+Step   799. Time 0.25755512. Time step 3.22346832e-04. Done. Successfully.
+Step   800. Time 0.25787747. Time step 3.22346832e-04. Done. Successfully.
+Step   801. Time 0.25819981. Time step 3.22346832e-04. Done. Successfully.
+Step   802. Time 0.25852216. Time step 3.22346832e-04. Done. Successfully.
+Step   803. Time 0.25884451. Time step 3.22346832e-04. Done. Successfully.
+Step   804. Time 0.25916685. Time step 3.22346832e-04. Done. Successfully.
+Step   805. Time 0.25948920. Time step 3.22346832e-04. Done. Successfully.
+Step   806. Time 0.25981155. Time step 3.22346832e-04. Done. Successfully.
+Step   807. Time 0.26013389. Time step 3.22346832e-04. Done. Successfully.
+Step   808. Time 0.26045624. Time step 3.22346832e-04. Done. Successfully.
+Step   809. Time 0.26077859. Time step 3.22346832e-04. Done. Successfully.
+Step   810. Time 0.26110093. Time step 3.22346832e-04. Done. Successfully.
+Step   811. Time 0.26142328. Time step 3.22346832e-04. Done. Successfully.
+Step   812. Time 0.26174563. Time step 3.22346832e-04. Done. Successfully.
+Step   813. Time 0.26206797. Time step 3.22346832e-04. Done. Successfully.
+Step   814. Time 0.26239032. Time step 3.22346832e-04. Done. Successfully.
+Step   815. Time 0.26271267. Time step 3.22346832e-04. Done. Successfully.
+Step   816. Time 0.26303502. Time step 3.22346832e-04. Done. Successfully.
+Step   817. Time 0.26335736. Time step 3.22346832e-04. Done. Successfully.
+Step   818. Time 0.26367971. Time step 3.22346832e-04. Done. Successfully.
+Step   819. Time 0.26400206. Time step 3.22346832e-04. Done. Successfully.
+Step   820. Time 0.26432440. Time step 3.22346832e-04. Done. Successfully.
+Step   821. Time 0.26464675. Time step 3.22346832e-04. Done. Successfully.
+Step   822. Time 0.26496910. Time step 3.22346832e-04. Done. Successfully.
+Step   823. Time 0.26529144. Time step 3.22346832e-04. Done. Successfully.
+Step   824. Time 0.26561379. Time step 3.22346832e-04. Done. Successfully.
+Step   825. Time 0.26593614. Time step 3.22346832e-04. Done. Successfully.
+Step   826. Time 0.26625848. Time step 3.22346832e-04. Done. Successfully.
+Step   827. Time 0.26658083. Time step 3.22346832e-04. Done. Successfully.
+Step   828. Time 0.26690318. Time step 3.22346832e-04. Done. Successfully.
+Step   829. Time 0.26722552. Time step 3.22346832e-04. Done. Successfully.
+Step   830. Time 0.26754787. Time step 3.22346832e-04. Done. Successfully.
+Step   831. Time 0.26787022. Time step 3.22346832e-04. Done. Successfully.
+Step   832. Time 0.26819256. Time step 3.22346832e-04. Done. Successfully.
+Step   833. Time 0.26851491. Time step 3.22346832e-04. Done. Successfully.
+Step   834. Time 0.26883726. Time step 3.22346832e-04. Done. Successfully.
+Step   835. Time 0.26915961. Time step 3.22346832e-04. Done. Successfully.
+Step   836. Time 0.26948195. Time step 3.22346832e-04. Done. Successfully.
+Step   837. Time 0.26980430. Time step 3.22346832e-04. Done. Successfully.
+Step   838. Time 0.27012665. Time step 3.22346832e-04. Done. Successfully.
+Step   839. Time 0.27044899. Time step 3.22346832e-04. Done. Successfully.
+Step   840. Time 0.27077134. Time step 3.22346832e-04. Done. Successfully.
+Step   841. Time 0.27109369. Time step 3.22346832e-04. Done. Successfully.
+Step   842. Time 0.27141603. Time step 3.22346832e-04. Done. Successfully.
+Step   843. Time 0.27173838. Time step 3.22346832e-04. Done. Successfully.
+Step   844. Time 0.27206073. Time step 3.22346832e-04. Done. Successfully.
+Step   845. Time 0.27238307. Time step 3.22346832e-04. Done. Successfully.
+Step   846. Time 0.27270542. Time step 3.22346832e-04. Done. Successfully.
+Step   847. Time 0.27302777. Time step 3.22346832e-04. Done. Successfully.
+Step   848. Time 0.27335011. Time step 3.22346832e-04. Done. Successfully.
+Step   849. Time 0.27367246. Time step 3.22346832e-04. Done. Successfully.
+Step   850. Time 0.27399481. Time step 3.22346832e-04. Done. Successfully.
+Step   851. Time 0.27431715. Time step 3.22346832e-04. Done. Successfully.
+Step   852. Time 0.27463950. Time step 3.22346832e-04. Done. Successfully.
+Step   853. Time 0.27496185. Time step 3.22346832e-04. Done. Successfully.
+Step   854. Time 0.27528419. Time step 3.22346832e-04. Done. Successfully.
+Step   855. Time 0.27560654. Time step 3.22346832e-04. Done. Successfully.
+Step   856. Time 0.27592889. Time step 3.22346832e-04. Done. Successfully.
+Step   857. Time 0.27625124. Time step 3.22346832e-04. Done. Successfully.
+Step   858. Time 0.27657358. Time step 3.22346832e-04. Done. Successfully.
+Step   859. Time 0.27689593. Time step 3.22346832e-04. Done. Successfully.
+Step   860. Time 0.27721828. Time step 3.22346832e-04. Done. Successfully.
+Step   861. Time 0.27754062. Time step 3.22346832e-04. Done. Successfully.
+Step   862. Time 0.27786297. Time step 3.22346832e-04. Done. Successfully.
+Step   863. Time 0.27818532. Time step 3.22346832e-04. Done. Successfully.
+Step   864. Time 0.27850766. Time step 3.22346832e-04. Done. Successfully.
+Step   865. Time 0.27883001. Time step 3.22346832e-04. Done. Successfully.
+Step   866. Time 0.27915236. Time step 3.22346832e-04. Done. Successfully.
+Step   867. Time 0.27947470. Time step 3.22346832e-04. Done. Successfully.
+Step   868. Time 0.27979705. Time step 3.22346832e-04. Done. Successfully.
+Step   869. Time 0.28011940. Time step 3.22346832e-04. Done. Successfully.
+Step   870. Time 0.28044174. Time step 3.22346832e-04. Done. Successfully.
+forrtl: error (200): program aborting due to control-C event
+Image              PC                Routine            Line        Source             
+libifcoremd.dll    00007FFFB9DBDF54  Unknown               Unknown  Unknown
+KERNELBASE.dll     00007FF8974343C3  Unknown               Unknown  Unknown
+KERNEL32.DLL       00007FF89B017AD4  Unknown               Unknown  Unknown
+ntdll.dll          00007FF89B32A371  Unknown               Unknown  Unknown
+Calculation time is: 113 seconds (0 hours 1 min. 53 sec.)
+Calculation finished successfully at 2025-11-6 02:54:57
